@@ -1,0 +1,41 @@
+body {
+    font-size: 1.5em;
+}
+
+#div-titulo {
+    margin-top: 200px;
+    padding: 30px;
+}
+
+h1 {
+    margin: 20px;
+}
+
+#div-fotos {
+    margin: 20px;
+    padding: 30px;
+}
+
+a {
+    color: rgb(136, 0, 0);
+    text-decoration: underline;
+}
+
+section {
+    background-color: whitesmoke;
+    border-radius: 16px;
+    box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.171);
+    width: 600px;
+    margin: auto;
+}
+
+ul {
+    list-style: none;
+}
+
+input {
+    border-radius: 16px;
+    padding: 4px;
+    margin: 4px;
+    background-color: #e6e6e6;
+}

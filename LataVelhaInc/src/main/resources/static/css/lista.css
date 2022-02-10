@@ -1,0 +1,13 @@
+.list-container {
+    margin: auto;
+    margin-top: 20px;
+    padding: 0 100px 0 100px;
+}
+
+#botao-delete{
+	background-color: red;
+}
+
+#botao-delete:hover {
+	background-color: rgb(202, 0, 0);
+}

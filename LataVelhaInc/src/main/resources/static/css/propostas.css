@@ -1,0 +1,58 @@
+.propostas {
+    background-color: #e6e6e6
+}
+
+.acao {
+    background-color: rgb(230, 230, 230);
+    border-color: rgb(230, 230, 230);
+}
+
+#aceitar, #negar {
+    width: 100px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 0.8em;
+    display: inline-block;
+    margin-inline: 10px;
+    padding: 12px;
+    background-color: transparent;
+    cursor: pointer;
+    -webkit-transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+    transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;  
+}
+
+#aceitar {
+    border: 2px solid green;
+    color: green;      
+}
+
+#aceitar:hover {
+    box-shadow: 0 0 40px 40px green inset;
+    color: #e6e6e6;
+}
+
+#negar {
+    border: 2px solid red;
+    color: red;     
+}
+
+#negar:hover {
+    box-shadow: 0 0 40px 40px red inset;
+    color: #e6e6e6;
+}
+
+#mensagem {
+    padding: 10px;
+}
+
+.box_mensagem {
+    border: none;
+}
+
+.estado {
+    width: 300px;
+}
+
+td {
+    width: 140px;
+}

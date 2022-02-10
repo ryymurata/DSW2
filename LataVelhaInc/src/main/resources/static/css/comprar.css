@@ -1,0 +1,169 @@
+.carro {
+    margin: auto;
+    margin-top: 100px;
+    margin-bottom: 80px;
+    width: 70%;
+    background-color:#fafafa;
+    border-radius: 10px;
+	box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.205);
+}
+
+.fotos {
+    float: left;
+    width: 680px;
+    overflow: hidden;
+}
+
+.info {
+    margin: 30px;
+}
+
+.dadosCarro {
+    text-align: end;
+    font-size: 1.4em;
+    list-style-type: none;
+}
+
+.dadosCarro > li {
+    margin-inline: 30px;
+}
+
+.descricao {
+    padding: 120px;
+    clear: both;
+    font-size: 1.1em;
+}
+
+#preco {
+    padding-top: 30px;
+    font-size: 1.8em;
+    font-weight: bold;
+    color: red;
+}
+
+.nomeModelo {
+    font-size: 1.5em;
+    font-weight: bolder;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+input {
+    margin-top: 20px;
+    padding: 14px;
+    border-radius: 16px;
+    font-size: 1.1em;
+    border-color: rgba(255, 255, 255, 0);
+}
+
+#pvalor, #pparcelas {
+    width: 150px;
+    background-color: #e6e6e6;
+}
+
+li img {
+    width: 600px;
+    height: 400px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.205);
+}
+
+.propostas {
+    background-color: #e6e6e6;
+    border-radius: 16px;
+    box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.226);
+}
+
+#proposta {
+    font-weight: bold;
+    background-color: transparent;
+    border: 2px solid #e74c3c;
+    color: #e74c3c;
+    cursor: pointer;
+    -webkit-transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+    transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+    display: block;
+    margin-inline: auto;
+    width: 304px;
+}
+
+#proposta:hover {
+    box-shadow: 0 0 40px 40px #e74c3c inset;
+    color: #e6e6e6;
+}
+
+td, th {
+    border: none;
+}
+
+table {
+    margin-top: 2px;
+}
+
+#botao_cancelar {
+    background-color: #2b2b2b;
+    border-bottom-right-radius: 16px;
+    border-top-left-radius: 16px;
+}
+
+#form_proposta {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.carousel-inner {
+    border-top-left-radius: 10px;
+}
+
+.label {
+    margin-top: 50px;
+    padding: 0;
+    font-weight: bold;
+}
+
+@media (min-width: 901px) and (max-width: 1600px) {
+	.carro {
+		width: 80%;
+	}
+    .descricao {
+        clear: both;
+    }
+    .info {
+        width: 100%;
+        height: fit-content;
+        clear: both;
+        margin: 0;
+    }
+    .fotos {
+        clear: both;
+        float: none;
+        margin: auto;
+    }
+    .dadosCarro {
+        text-align: center;
+    }
+}
+
+@media (max-width: 900px) {
+	.carro {
+		width: 95%;
+	}
+    .descricao {
+        clear: both;
+    }
+    .info {
+        width: 100%;
+        height: fit-content;
+        clear: both;
+        margin: 0;
+    }
+    .fotos {
+        clear: both;
+        float: none;
+        margin: auto;
+        width: fit-content;
+    }
+    .dadosCarro {
+        text-align: center;
+    }
+
+}

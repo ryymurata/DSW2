@@ -1,0 +1,64 @@
+<div align="center">
+    <h1 class="label" th:text=#{bids.list}></h1>
+</div>
+<div align="center">
+    <section>
+        <table class="propostas">
+            <thead>
+                <tr>
+                    <th th:text=#{bids.customer}> </th>
+                    <th th:text=#{bids.date}> </th>
+                    <th th:text=#{bids.photo}> </th>
+                    <th th:text=#{bids.vehicle}></th>
+                    <th th:text=#{bids.vehicle.value}></th>
+                    <th th:text=#{bids.installment.plan}></th>
+                    <th th:text=#{store.entity}></th>
+                    <th th:text=#{bids.value}></th>
+                    <th th:text=#{bids.status}></th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr th:each="proposta : ${propostas}">
+                    <td th:text="${proposta.cliente.username}"></td>
+                    <td th:text="${proposta.data}"></td>
+                    <td>
+                        <img th:src="@{http://localhost:8080/images/{id}/{file} (id=${proposta.veiculo.id},file='1.jpg')}" alt="Carro" height="80px"
+                            width="120px">
+                    </td>
+                    <td th:text="${proposta.veiculo.modelo}"></td>
+                    <td th:text="${proposta.veiculo.preco}"></td>
+                    <td th:text="${proposta.parcelamento}"> </td>
+                    <td th:text="${proposta.loja.nome}"></td>
+                    <td th:text="${proposta.valor}"></td>
+                    <td class="estado">
+                        <div th:switch="${proposta.estado}">
+                            <p th:case="'ACEITO'" th:text=#{bids.accepted}></p>
+                            <p th:case="'ABERTO'" th:text=#{bids.open}></p>
+                            <p th:case="*" th:text=#{bids.rejected}></p>
+                            <span th:if="${proposta.estado} == 'ABERTO'" sec:authorize="hasRole('ROLE_USER')">
+                                <a id="negar" th:href="@{/proposta/cancelar/{id}(id=${proposta.id})}"
+                                    th:text=#{bids.cancel}></a>
+                            </span>
+                            <span th:if="${proposta.estado} == 'ABERTO'" sec:authorize="hasRole('ROLE_LOJA')">
+                                <a id="aceitar" th:href="@{/proposta/aceitar/{id_proposta}(id_proposta=${proposta.id})}"
+                                    th:text=#{store.accept}></a>
+                                <a id="negar" th:href="@{/proposta/negar/{id_proposta}(id_proposta=${proposta.id})}"
+                                    th:text=#{store.reject}></a>
+                            </span>
+                        </div>
+                    </td>
+                    <div th:if="${proposta.estado} == 'ABERTO'" sec:authorize="hasRole('ROLE_LOJA')">
+                        <td class="box_mensagem">
+                            <h5 th:text=#{store.send.message}></h5>
+                            <textarea name="mensagem" id="mensagem" cols="40" rows="5"></textarea>
+                            <input th:value="@{#{bids.save}}" type="button" id="salvar_mensagem" onclick="msg_email()"/>
+                        </td>
+                    </div>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+</div>
+<script src="/js/cor.js"></script>
+<script src="/js/msg_email.js"></script>

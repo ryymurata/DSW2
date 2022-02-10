@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title th:text=#{bids.title}></title>
+	<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
+	<link th:href="@{/webjars/open-iconic/font/css/open-iconic-bootstrap.min.css}" rel="stylesheet" />
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="/css/global.css">
+	<link rel="stylesheet" href="/css/comprar.css">
+</head>
+
+<body>
+	<div th:replace="fragments/topbarLinks"></div>
+	<section class="carro">
+		<div id="carouselExampleControls" class="carousel slide fotos" data-ride="carousel">
+			<div class="carousel-inner">
+				<div class="carousel-item active">
+					<img class="d-block w-100" th:src="@{http://localhost:8080/images/{id}/{file} (id=${veiculo.id},file='1.jpg')}" alt="Carro" height="440px">
+				</div>
+				<div class="carousel-item" th:each="file: ${files}">
+					<img class="d-block w-100" th:src="@{http://localhost:8080/images/{id}/{file} (id=${veiculo.id},file=${file})}" alt="Carro" height="440px">
+				</div>
+			</div>
+			<a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				<span class="sr-only">Anterior</span>
+			</a>
+			<a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+				<span class="carousel-control-next-icon" aria-hidden="true"></span>
+				<span class="sr-only">Próximo</span>
+			</a>
+		</div>
+		<div class="info">
+			<ul class="dadosCarro">
+				<li class="nomeModelo"
+					th:text="${veiculo.modelo} + ' '+  ${veiculo.ano} + ' - ' + ${veiculo.quilometragem} + 'km'"></li>
+				<li th:text="${veiculo.loja.nome}"></li>
+				<li th:text="#{vehicle.license} + ': ' + ${veiculo.placa} "></li>
+				<li th:text="#{vehicle.chassis} + ': ' + ${veiculo.chassi} "></li>
+				<li id="preco" th:text="'R$' + ${veiculo.preco}"></li>
+			</ul>
+
+			<div th:with="aberta=${proposta_aberta},aceita=${proposta_aceita},vendido=${ja_vendido}">
+				<form id="form_proposta" th:action="@{/proposta/salvar}" method="post" th:object="${proposta}">
+					<input type="hidden" th:field="*{cliente}" id="cliente">
+					<input type="hidden" th:field="*{loja}" id="loja">
+					<input type="hidden" th:field="*{veiculo}" id="veiculo">
+					<input type="hidden" th:field="*{data}" id="data">
+					<input type="hidden" th:field="*{estado}" id="estado">
+
+					<div th:if="${aceita == null && aberta == null && vendido == null}">
+						<div style="display: inline-block;">
+							<input id="pvalor" type="number" name="valor" th:placeholder="#{bids.value}"
+								th:field="*{valor}" th:classappend="${#fields.hasErrors('valor')} ? is-invalid" />
+							<div class="invalid-feedback">
+								<span th:errors="*{valor}"></span>
+							</div>
+						</div>
+						<div style="display: inline-block;">
+							<input id="pparcelas" type="number" name="parcelamento"
+								th:placeholder="#{bids.number.installments}" th:field="*{parcelamento}"
+								th:classappend="${#fields.hasErrors('parcelamento')} ? is-invalid" />
+							<div class="invalid-feedback">
+								<span th:errors="*{parcelamento}"></span>
+							</div>
+						</div>
+						<input id="proposta" type="submit" name="Proposta" th:value="#{bids.make}" />
+					</div>
+					
+					<div th:if="${aberta != null}">
+						<h5 class="label" th:text=#{customer.open.bid}></h5>
+						<table class="propostas">
+							<thead>
+								<tr>
+									<th th:text=#{bids.date}></th>
+									<th th:text=#{bids.value}></th>
+									<th th:text=#{customer.cancel.bid}></th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td th:text=${proposta_aberta.data}></td>
+									<td
+										th:text="'R$' + ${proposta_aberta.valor} + ' ' + ${proposta_aberta.parcelamento}">
+									</td>
+									<td id="botao_cancelar">
+										<a id="remover" th:href="@{/proposta/cancelar/{id}(id=${proposta_aberta.id})}"
+											th:text=#{bids.cancel} /></a>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+
+					<div th:if="${aceita != null}">
+						<h2 class="label" th:text=#{bids.accepted}></h2>
+					</div>
+
+					<div th:if="${vendido != null}">
+						<h2 class="label" th:text=#{bids.sold}></h2>
+					</div>				
+				</form>
+			</div>
+			<div class="descricao">
+				<p th:text="#{vehicle.about}" style="font-size: 1.5em; font-weight: bold;"></p>
+				<p th:text="${veiculo.descricao}"></p>
+			</div>
+	</section>
+	<script src="/js/carrossel.js"></script>
+</body>
+
+</html>

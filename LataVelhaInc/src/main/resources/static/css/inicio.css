@@ -1,0 +1,152 @@
+/*CARDS DOS CARROS*/
+#carros {
+	margin: auto;
+	width: 70%;
+	margin-top: 100px;
+}
+
+.box {
+	border: 20px solid rgba(255, 255, 255, 0);
+	position: relative;
+}
+
+.box-link {
+	text-decoration: none;
+	color: #2b2b2b;
+}
+
+.card {
+	width: 100%;
+	background-color:rgb(250, 250, 250);
+	border-radius: 10px;
+	box-shadow: 4px 6px 10px rgba(0, 0, 0, 0.205);
+    transition: all 0.1s ease-out;
+	position: relative;
+}
+
+.card:hover {
+	box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.205);
+}
+
+.dadosCarro {
+	padding: 20px;
+	list-style: none;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+.oferta {
+	font-size: 1.5em;
+	font-weight: bold;
+	color: red;
+	text-align: end;
+}
+
+.modelo {
+	font-size: 1.1em;
+	font-weight: 900;
+	text-align: end;
+}
+
+.container {
+	overflow: hidden;
+	height: 250px;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+}
+
+/* recomendado uso de imagens 16:9*/
+.container > img {
+	padding: 0;
+	height: 250px;
+	width: 444px;
+	position:relative;
+	margin-left: 50%;
+	left: -222px;
+}
+
+/*FILTRO DE CARROS*/
+#filtro, #numero, #legendaN {
+	background-color:rgba(250, 250, 250, 0.603);
+	border-radius: 2px;
+	border-color: rgba(0, 0, 0, 0);
+	height: 40px;
+	font-size: 1.1em;
+	padding: 10px;
+}
+
+#numero, #legendaN {
+	float: right;
+	color: #757575;
+}
+
+#divFiltro {
+	margin: 20px;
+	position: relative;
+}
+
+/*DESIGN RESPONSIVO DA PAGINA INICIAL*/
+@media (min-width: 1301px) {
+    .box {
+        float: left;
+        width: 25%;
+    }
+}
+
+@media (min-width: 901px) and (max-width: 1300px) {
+    .box {
+        float: left;
+        width: 33.33%;
+    }
+	#carros {
+		width: 80%;
+	}
+}
+
+@media (min-width: 500px) and (max-width: 900px) {
+    .box{
+		float: left;
+        width: 50%;
+    }
+	#carros {
+		width: 95%;
+	}
+}
+
+@media (max-width: 499px) {
+    .box{
+		clear: both;
+        width: 100%;
+    }
+	#carros {
+		width: 95%;
+	}
+}
+
+#linkAdicionar{
+	margin-top: 90px;
+    text-align: center;
+    color: red;
+    font-size: larger;
+    margin-bottom: 3px;
+    text-decoration: underline;
+}
+
+#deletar {
+    width: 100%;
+    border-radius: 0 0 10px 10px;
+    font-weight: bold;
+    margin: auto;
+    padding: 8px;
+    background-color: transparent;
+    border: 2px solid #e74c3c;
+    color: #e74c3c;
+    cursor: pointer;
+    -webkit-transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+    transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+}
+
+#deletar:hover {
+    box-shadow: 0 0 40px 40px #e74c3c inset;
+    color: #e6e6e6;
+}

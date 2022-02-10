@@ -1,0 +1,23 @@
+.box {
+	cursor: default;
+}
+
+.dadosCarro a {
+    padding: 10px;
+    margin: 3px;
+    background-color: #2b2b2b;
+    font-size: 1.1em;
+    border-radius: 16px;
+    width: fit-content;
+    transition: all 0.2s ease;
+}
+
+.dadosCarro a:hover {
+    -webkit-transform: scale(1.03);
+    transform: scale(1.03);
+}
+
+.card:hover {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+}

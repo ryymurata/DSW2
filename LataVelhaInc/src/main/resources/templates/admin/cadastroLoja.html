@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8" />
+	<title th:text="#{store.register.title}"></title>
+	<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
+	<link th:href="@{/webjars/open-iconic/font/css/open-iconic-bootstrap.min.css}" rel="stylesheet" />
+	<link rel="stylesheet" href="/css/global.css">
+	<link rel="stylesheet" href="/css/cadastro.css">
+</head>
+
+<body>
+
+	<section class="layout-content">
+
+		<div th:replace="fragments/topbarLinks"></div>
+
+		<div class="container" id="cadastro">
+
+			<div th:replace="fragments/alert"></div>
+
+			<form th:action="${loja.id == null} ? @{/loja/salvar} : @{/loja/editar}" th:object="${loja}" method="POST">
+
+				<div class="form-row">
+					<div class="form-group col-md-6">
+						<label th:text="#{store.name}" for="nome"></label>
+						<input type="text" class="form-control" id="nome" th:placeholder="#{store.name}"
+							th:field="*{nome}" th:classappend="${#fields.hasErrors('nome')} ? is-invalid" />
+
+						<div class="invalid-feedback">
+							<span th:errors="*{nome}"></span>
+						</div>
+					</div>
+					<div class="form-group col-md-6">
+						<label th:text="#{store.email}" for="nome"></label>
+						<input th:if="${loja.id == null}" type="text" class="form-control" id="nome"
+							th:placeholder="#{store.email}" th:field="*{username}"
+							th:classappend="${#fields.hasErrors('username')} ? is-invalid" />
+						<input th:if="${loja.id != null}" type="text" class="form-control" id="nome"
+							th:placeholder="#{store.email}" th:field="${loja.username}"
+							th:classappend="${#fields.hasErrors('username')} ? is-invalid" readonly />
+
+						<div class="invalid-feedback">
+							<span th:errors="*{username}"></span>
+						</div>
+					</div>
+					<div class="form-group col-md-6">
+						<label th:text="#{store.password}" for="nome"></label>
+						<input th:if="${loja.id == null}" type="text" class="form-control" id="nome"
+							th:placeholder="#{store.password}" th:field="*{password}"
+							th:classappend="${#fields.hasErrors('password')} ? is-invalid" />
+
+						<input th:if="${loja.id != null}" type="text" class="form-control" id="nome"
+							th:placeholder="#{store.password}" th:field="${loja.password}"
+							th:classappend="${#fields.hasErrors('password')} ? is-invalid" readonly />
+
+						<div class="invalid-feedback">
+							<span th:errors="*{password}"></span>
+						</div>
+					</div>
+					<div class="form-group col-md-6">
+						<label th:text="#{store.cnpj}" for="CNPJ"></label>
+						<input th:if="${loja.id == null}" type="text" class="form-control" id="CNPJ"
+							placeholder="__.___.___/____-__" th:field="*{CNPJ}" data-mask="00.000.000/0000-00"
+							data-mask-reverse="true" th:classappend="${#fields.hasErrors('CNPJ')} ? is-invalid" />
+
+						<input th:if="${loja.id != null}" type="text" class="form-control" id="CNPJ"
+							placeholder="__.___.___/____-__" th:field="${loja.CNPJ}" data-mask="00.000.000/0000-00"
+							data-mask-reverse="true" th:classappend="${#fields.hasErrors('CNPJ')} ? is-invalid"
+							readonly />
+
+						<div class="invalid-feedback">
+							<span th:errors="*{CNPJ}"></span>
+						</div>
+					</div>
+					<div class="form-group col-md-6">
+						<label th:text="#{store.description}" for="nome"></label>
+						<input type="text" class="form-control" id="nome" th:placeholder="#{store.description}"
+							th:field="*{descricao}" th:classappend="${#fields.hasErrors('descricao')} ? is-invalid" />
+
+						<div class="invalid-feedback">
+							<span th:errors="*{descricao}"></span>
+						</div>
+					</div>
+
+					<div class="form-group col-md-6">
+						<label th:text="#{user.role}" for="nome"></label>
+						<input type="text" class="form-control" id="nome" th:field="${loja.role}" readonly />
+
+						<div class="invalid-feedback">
+							<span th:errors="*{role}"></span>
+						</div>
+					</div>
+				</div>
+
+				<input type="hidden" id="id" th:field="*{id}" />
+				<div class="divSalvar">
+					<button id="salvar" type="submit" th:text="#{object.save}" class="btn btn-primary btn-sm"></button>
+				</div>
+			</form>
+		</div>
+	</section>
+</body>
+
+<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<script th:src="@{/webjars/jquery-mask-plugin/dist/jquery.mask.min.js}"></script>
+
+</html>

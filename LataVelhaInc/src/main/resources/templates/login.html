@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title th:text="#{page.title}"></title>
+        <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+        <link rel="stylesheet" th:href="@{/webjars/open-iconic/font/css/open-iconic-bootstrap.min.css}"/>
+        <link rel="stylesheet" href="/css/global.css">
+    	<link rel="stylesheet" href="/css/inicio.css">
+    </head>
+    <body>
+    	<div th:replace="fragments/topbarLinks"></div>
+        <div class="boxLogin">
+        	<form method="post" th:action="@{/login}">
+        		<div th:if="${param.error}">
+						<div class="alert alert-danger">
+							<span th:text="#{login.error}"></span>
+						</div>
+				</div>
+	        	<label class="labelLogin" for="username" th:text="#{user.login}"></label>:
+			       	<input class="camposLogin" type="text" name="username">
+        		
+	        	<label for="password" th:text="#{user.password}"></label>:
+	        		<input class="camposLogin" type="password" name="password" />
+				
+	        	<input class="botaoLogar" type="submit" name="login-submit" th:value="#{user.login}">
+	        </form>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8" />
+	<title th:text="#{customer.register.title}"></title>
+	<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
+	<link th:href="@{/webjars/open-iconic/font/css/open-iconic-bootstrap.min.css}" rel="stylesheet" />
+	<link rel="stylesheet" href="/css/global.css">
+	<link rel="stylesheet" href="/css/cadastro.css">
+</head>
+
+<body>
+
+	<section class="layout-content">
+
+		<div th:replace="fragments/topbarLinks"></div>
+
+		<div class="container" id="cadastro">
+
+			<div th:replace="fragments/alert"></div>
+
+			<form th:action="${cliente.id == null} ? @{/cliente/salvar} : @{/cliente/editar}" th:object="${cliente}"
+				method="POST">
+
+				<div class="form-row">
+					<div class="form-group col-md-6">
+						<label th:text="#{customer.name}" for="nome"></label>
+						<input type="text" class="form-control" id="nome" th:placeholder="#{customer.name}"
+							th:field="*{nome}" th:classappend="${#fields.hasErrors('nome')} ? is-invalid" />
+
+						<div class="invalid-feedback">
+							<span th:errors="*{nome}"></span>
+						</div>
+					</div>
+					<div class="form-group col-md-6">
+						<label th:text="#{customer.email}" for="username"></label>
+						<input th:if="${cliente.id == null}" type="text" class="form-control" id="username" th:placeholder="#{customer.email}"
+							th:field="*{username}" th:classappend="${#fields.hasErrors('username')} ? is-invalid" />
+						<input th:if="${cliente.id != null}" type="text" class="form-control" id="username" th:placeholder="#{customer.email}"
+							th:field="*{username}" th:classappend="${#fields.hasErrors('username')} ? is-invalid"
+							readonly />
+
+						<div class="invalid-feedback">
+							<span th:errors="*{username}"></span>
+						</div>
+					</div>
+					<div class="form-group col-md-6">
+						<label th:text="#{customer.password}" for="password"></label>
+						<input th:if="${cliente.id == null}" type="text" class="form-control" id="password"
+							th:placeholder="#{customer.password}" th:field="*{password}"
+							th:classappend="${#fields.hasErrors('password')} ? is-invalid" />
+
+						<input th:if="${cliente.id != null}" type="text" class="form-control" id="password"
+							th:placeholder="#{customer.password}" th:field="${cliente.password}"
+							th:classappend="${#fields.hasErrors('password')} ? is-invalid" readonly />
+
+						<div class="invalid-feedback">
+							<span th:errors="*{password}"></span>
+						</div>
+					</div>
+					<div class="form-group col-md-6">
+						<label th:text="#{customer.ssn}" for="CPF"></label>
+						<input th:if="${cliente.id == null}" type="text" class="form-control" id="CPF"
+							placeholder="___.___.___-__" th:field="*{CPF}" data-mask="000.000.000-00"
+							data-mask-reverse="true" th:classappend="${#fields.hasErrors('CPF')} ? is-invalid" />
+
+						<input th:if="${cliente.id != null}" type="text" class="form-control" id="CPF"
+							placeholder="___.___.___-__" th:field="${cliente.CPF}" data-mask="000.000.000-00"
+							data-mask-reverse="true" th:classappend="${#fields.hasErrors('CPF')} ? is-invalid"
+							readonly />
+						<div class="invalid-feedback">
+							<span th:errors="*{CPF}"></span>
+						</div>
+					</div>
+					<div class="form-group col-md-6">
+						<label th:text="#{customer.phone}" for="nome"></label>
+						<input type="text" class="form-control" id="nome" th:placeholder="#{customer.phone}"
+							th:field="*{telefone}" th:classappend="${#fields.hasErrors('telefone')} ? is-invalid" />
+
+						<div class="invalid-feedback">
+							<span th:errors="*{telefone}"></span>
+						</div>
+					</div>
+					<div class="form-group col-md-6">
+						<label th:text="#{customer.gender}" for="sexo"></label>
+						<input type="text" class="form-control" id="Sexo" th:placeholder="#{customer.gender}"
+							th:field="*{sexo}" th:classappend="${#fields.hasErrors('sexo')} ? is-invalid" />
+
+						<div class="invalid-feedback">
+							<span th:errors="*{sexo}"></span>
+						</div>
+					</div>
+					<div class="form-group col-md-6">
+						<label th:text="#{customer.birth}" for="nascimento"></label>
+						<input type="text" class="form-control" id="nascimento" placeholder="__/__/____"
+							th:field="*{nascimento}" data-mask="00/00/0000" data-mask-reverse="true"
+							th:classappend="${#fields.hasErrors('nascimento')} ? is-invalid" />
+
+						<div class="invalid-feedback">
+							<span th:errors="*{nascimento}"></span>
+						</div>
+					</div>
+					<div class="form-group col-md-6">
+						<label th:text="#{user.role}" for="role"></label>
+						<input type="text" class="form-control" id="role" th:field="${cliente.role}" readonly />
+					</div>
+				</div>
+
+				<input type="hidden" id="id" th:field="*{id}" />
+				<div class="divSalvar">
+					<button id="salvar" type="submit" th:text="#{object.save}" class="btn btn-primary btn-sm"></button>
+				</div>
+			</form>
+		</div>
+	</section>
+</body>
+
+<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<script th:src="@{/webjars/jquery-mask-plugin/dist/jquery.mask.min.js}"></script>
+
+</html>

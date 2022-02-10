@@ -1,0 +1,375 @@
+{
+	"info": {
+		"_postman_id": "da5c0317-8d51-4273-a747-4db85e4c8100",
+		"name": "T3-DSW",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Clientes",
+			"item": [
+				{
+					"name": "Cria",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"novocliente@gmail.com\",\r\n    \"password\": \"123\",\r\n    \"role\": \"ROLE_USER\",\r\n    \"enabled\": true,\r\n    \"nome\": \"novocliente\",\r\n    \"telefone\": \"4002-8922\",\r\n    \"sexo\": \"F\",\r\n    \"nascimento\": \"10/05/1990\",\r\n    \"cpf\": \"210.543.876-09\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/clientes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"clientes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lista",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/clientes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"clientes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retorna Cliente por ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/clientes/8",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"clientes",
+								"8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualiza",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"sarah@gmail.com\",\r\n    \"password\": \"123\",\r\n    \"role\": \"ROLE_USER\",\r\n    \"enabled\": true,\r\n    \"nome\": \"sarah\",\r\n    \"telefone\": \"4002-8922\",\r\n    \"sexo\": \"F\",\r\n    \"nascimento\": \"10/05/1990\",\r\n    \"cpf\": \"210.543.876-09\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/clientes/8",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"clientes",
+								"8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/clientes/8",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"clientes",
+								"8"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Lojas",
+			"item": [
+				{
+					"name": "Cria",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"novaloja@gmail.com\",\r\n    \"password\": \"123\",\r\n    \"role\": \"ROLE_LOJA\",\r\n    \"enabled\": true,\r\n    \"nome\": \"novaloja\",\r\n    \"descricao\": \"descricao da nova loja\",\r\n    \"cnpj\": \"16.520.951/0007-23\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/lojas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"lojas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lista",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/lojas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"lojas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retorna Loja por ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/lojas/9",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"lojas",
+								"9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualiza",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"turbocar@gmail.com\",\r\n    \"password\": \"123\",\r\n    \"role\": \"ROLE_LOJA\",\r\n    \"enabled\": true,\r\n    \"nome\": \"Turbo Car\",\r\n    \"descricao\": \"Carros Velozes e Potentes, você só encontra aqui!\",\r\n    \"cnpj\": \"16.520.951/0007-23\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/lojas/9",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"lojas",
+								"9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/lojas/9",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"lojas",
+								"9"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Propostas",
+			"item": [
+				{
+					"name": "Retorna Propostas por Veículo",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/propostas/veiculos/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"propostas",
+								"veiculos",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retorna Propostas por Cliente",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/propostas/clientes/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"propostas",
+								"clientes",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Veiculos",
+			"item": [
+				{
+					"name": "Cria Veículo na Loja",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"placa\": \"WMBA1973\",\r\n    \"modelo\": \"BMW\",\r\n    \"chassi\": \"15975313794862501\",\r\n    \"ano\": 2020,\r\n    \"quilometragem\": 1000,\r\n    \"descricao\": \"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur quas est, nesciunt sit nisi non repudiandae nostrum provident maxime itaque dignissimos nihil saepe temporibus consequuntur rerum laudantium sint praesentium ullam.\",\r\n    \"preco\": 19999.99\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/veiculos/lojas/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"veiculos",
+								"lojas",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retorna Lista de Veículos da Loja",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/veiculos/lojas/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"veiculos",
+								"lojas",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retorna Lista de Veículos por Modelo",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/veiculos/modelos/BMW",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"veiculos",
+								"modelos",
+								"BMW"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

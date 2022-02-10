@@ -1,0 +1,25 @@
+<section id="carros">
+    <div th:replace="fragments/alert"></div>
+    <a href="/veiculo/adicionar" sec:authorize="hasRole('ROLE_LOJA')" id="linkAdicionar" th:text="#{vehicle.add}"></a>
+    <div id="divFiltro">
+        <input type="text" name="Filtro" th:placeholder="#{filter.label}" id="filtro" onfocus="comecar()" onblur="parar()">
+        <span id="legendaN" th:text=#{filter.count}></span>
+        <span id="numero">-</span>
+    </div>
+    <div th:each="veiculo: ${catalogo}">
+        <section class="box">
+            <a th:href="@{/proposta/comprar/{id} (id=${veiculo.id})}" class="box-link" sec:authorize="hasRole('ROLE_USER')">
+                <div th:replace="fragments/cards"></div>
+            </a>
+            <a th:href="@{/veiculo/editar/{id} (id=${veiculo.id})}" class="box-link" sec:authorize="hasRole('ROLE_LOJA')">
+                <div th:replace="fragments/cards"></div>
+            </a>
+            <a th:href="@{/login}" class="box-link" sec:authorize="!isAuthenticated()">
+                <div th:replace="fragments/cards"></div>
+            </a>
+        </section>
+    </div>
+</section>
+<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+<script src="/js/filtro.js"></script>

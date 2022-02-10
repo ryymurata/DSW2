@@ -1,0 +1,318 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+	margin: 0;
+	background-color: rgb(230, 230, 230);
+	font-size: 16px;
+	line-height: normal;
+}
+
+table {
+	border-collapse: collapse;
+	margin: auto;
+	margin-top: 50px;
+	text-align: center;
+}
+
+th, td {
+    border: 2px solid black;
+    padding: 8px 15px ;
+}
+
+
+a {
+	display: block;
+	color: rgb(182, 182, 182);
+	text-decoration: none;
+}
+
+ul {
+	list-style-type: none;
+}
+
+a:hover {
+	text-decoration:none;
+	color: black;
+}
+
+/*TOPBAR E LOGO*/
+#titulo {
+	font-size: 1.6em;
+	font-family: 'Gugi', cursive, Arial, sans-serif;
+	color: red;
+}
+
+.topbar {
+	background-color: rgb(43, 43, 43);
+	position: fixed;
+	top: 0;
+	width: 70%;
+	overflow: visible;
+	height: 60px;
+	font-size: 16px;
+}
+
+.topbar-support {
+	background-color: rgb(43, 43, 43);
+	box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.24);
+	position: fixed;
+	top: 0;
+	height: 60px;
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	z-index: 10;
+}
+
+#admin, #corporativo {
+	font-size: 0.8em;
+	color: whitesmoke;
+}
+
+.logo {
+	float: left;
+	padding: 14px 16px;
+}
+
+.linkTopoEsquerda {
+	float: left;
+	text-align: center;
+}
+
+.linkTopoDireita {
+	float: right;
+	text-align: center;
+}
+
+.linkTopo:hover {
+	background-color: rgba(175, 0, 0, 0.349);
+}
+
+.linkTopo a {
+	padding: 21px 16px;
+}
+
+.linkTopo:hover a {
+	color: whitesmoke;
+}
+
+.nomeTopoDireita {
+	float: right;
+	text-align: center;
+	padding: 21px 16px;
+	position: relative;
+}
+
+.nomeTopoDireita > span {
+	color: rgb(182, 182, 182);
+}
+
+.dropdown  {
+	display: none;
+	position: absolute;
+	top: 60px;
+	right: 0;
+	background-color: rgb(43, 43, 43);
+	border-bottom-left-radius: 16px;
+	border-bottom-right-radius: 16px;
+}
+
+.nomeTopoDireita:hover .dropdown {
+	display: block;
+}
+
+.nomeTopoDireita:hover, .dropdown:hover form{
+	background-color: rgba(175, 0, 0, 0.349);
+}
+
+.dropdown form {
+	box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.24);
+	border-bottom-left-radius: 16px;
+	border-bottom-right-radius: 16px;
+}
+
+.dropdown li {
+	float: right;
+	list-style-type: none;
+	width: inherit;
+}
+
+.dropdown li a {
+	padding: 21px 16px;
+}
+
+.dropdown li:hover a, .nomeTopoDireita:hover span {
+	color: whitesmoke;
+}
+
+/*CRUD DE ADMIN*/
+#crudLinks {
+	background-color: rgb(43, 43, 43);
+	margin: auto;
+	color: bisque;
+	border: 2px solid rgb(32, 32, 32);
+	border-radius: 20px;
+	text-align: center;
+	width: 600px;
+	height: fit-content;
+	margin-top: 200px;
+	padding: 20px;
+}
+
+.crud {
+	padding: 80px;
+	font-size: 3em;
+}
+
+#crud1 a:hover  {
+	color: whitesmoke;
+}
+
+#crud2 a:hover  {
+	color: whitesmoke;
+}
+
+.label {
+	text-align: center;
+	padding: 20px;
+	margin-top: 50px;
+}
+
+.adiciona {
+	padding: 20px;
+}
+
+.adiciona a, td a {
+	display: block;
+	color: rgb(255, 0, 0);
+}
+
+/*PARTE DA PAGINA DE LOGIN*/
+.boxLogin {
+	display:flex;
+	background: #c2c0c0;
+	justify-content: center;
+	align-items: center;
+	width: 400px;
+	height: 450px;
+    position: relative;
+    margin: 150px auto 0 auto;
+    padding: 12px;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+.camposLogin {
+	width:300px;
+	display: block;
+	border: 1px solid black;
+	border-radius: 5px;
+	padding: 10px 6px;	
+	margin-bottom: 40px;
+}
+
+.botaoLogar {
+	width:300px;
+	border: 2px solid black;
+	border-radius: 30px;
+	background: black;
+	color: white;
+	cursor: pointer;
+	padding: 15px 0;
+	font-size: 18px;
+	font-weight: bolder;
+	transition: 0.5s all;
+}
+
+.botaoLogar:hover {
+	background: red;
+}
+
+.botaoLogin {
+	font-weight: bolder;
+}
+
+.botaoLogout {
+	background: transparent;
+	color: #b6b6b6;
+	margin: 0;
+	padding: 10px;
+	border: none;
+	font-size: 1em;
+	font-weight: bolder;
+	text-align: center;
+	width: inherit;
+	cursor: pointer;
+}
+
+.botaoLogout:hover {
+	color: whitesmoke;
+}
+
+/* PARTE DA PAGINA DE ERROS*/
+#erro {
+	justify-content: center;
+	display: flex;
+	margin-top: 50px;
+}
+
+#erro ul {
+	color: red;
+    list-style-type: none;
+    margin: 50px;
+    background-color: #591c1c;
+    width: fit-content;
+    padding: 10px;
+    border-radius: 6px;
+    font-size: 1.2em;
+}
+
+#voltar {
+	background-color: rgb(43, 43, 43);
+	border-radius: 16px;
+	padding: 10px;
+	width: fit-content;
+}
+
+@media (max-width: 1300px) {
+	.topbar {
+		width: 100%;
+		margin: 0;
+		height: fit-content;
+	}
+}
+
+/* Icones do open icons*/
+
+.oi-caret-bottom {
+	font-size: 10px;
+}
+
+#fotos {
+	margin: auto;
+	border-radius: 10px;
+	text-align: center;
+	margin-top: 50px;
+	margin-bottom: 50px;
+	padding: 20px;
+}
+
+#fotos a {
+	color: red;
+	text-decoration: underline;
+}
+
+#fotos li {
+	display: inline-grid;
+	margin: 10px;
+}
+
+#fotos ul {
+	display: contents;
+}

@@ -1,0 +1,54 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gugi&display=swap" rel="stylesheet">
+
+<div class="topbar-support">
+    <div class="topbar">
+        <ul id="links">
+            <li class="logo">
+                <a href="/">
+                    <span id="titulo">LataVelhaInc.</span>
+                    <span id="admin" sec:authorize="hasRole('ROLE_ADMIN')">admin</span>
+                </a>
+            </li>
+            <li class="linkTopoEsquerda linkTopo" sec:authorize="hasRole('ROLE_LOJA')">
+                <a th:href="@{/proposta/listarPropostasLoja}" th:text=#{customer.bids}></a>
+            </li>
+
+            <li class="linkTopoEsquerda linkTopo" sec:authorize="hasRole('ROLE_USER')">
+                <a th:href="@{/proposta/listarPropostasCliente}" th:text=#{customer.bids}></a>
+            </li>
+
+            <li class="linkTopoDireita linkTopo" sec:authorize="!isAuthenticated()">
+                <a th:href="@{/login}" class="botaoLogin" th:text="#{user.login}"></a>
+            </li>
+            <li class="nomeTopoDireita" sec:authorize="isAuthenticated()">
+                <span th:inline="text">[[#{user.welcome}]]
+                    <span sec:authorize="hasRole('ROLE_ADMIN')" style="font-weight: bolder;">admin</span>
+                    <span sec:authorize="hasRole('ROLE_USER')" th:text=${cliente.nome}
+                        style="font-weight: bolder;"></span>
+                    <span sec:authorize="hasRole('ROLE_LOJA')" th:text=${loja.nome} style="font-weight: bolder;"></span>
+                </span> <span class="oi oi-caret-bottom"></span>
+                <ul class="dropdown">
+                    <li>
+                        <form th:action="@{/logout}" method="post">
+                            <input type="submit" name="login-submit" class="botaoLogout" th:value="#{user.logout}" style="width: 120px; height: 60px;">
+                        </form>
+                    </li>
+                </ul>
+            </li>            
+            <li class="nomeTopoDireita" style="width: 100px;">
+				<span class="oi oi-globe"></span> <span class="oi oi-caret-bottom"></span>
+				<ul class="dropdown" style="width: 100px;">
+					<li>
+						<a th:href="@{''(lang=pt)}" class="botaoLogout">pt-br</a> 
+					</li>
+	           	
+	           		<li>
+						<a th:href="@{''(lang=en)}" class="botaoLogout">en-us</a>
+					</li>				
+            	</ul>
+            </li>
+        </ul>
+    </div>
+</div>

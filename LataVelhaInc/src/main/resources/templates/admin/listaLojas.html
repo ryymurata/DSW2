@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity">
+
+<head>
+	<title th:text="#{store.list.title}"></title>
+	<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+	<link th:href="@{/webjars/open-iconic/font/css/open-iconic-bootstrap.min.css}" rel="stylesheet" />
+	<link rel="stylesheet" href="/css/lojas.css">
+	<link rel="stylesheet" href="/css/global.css">
+	<link rel="stylesheet" href="/css/lista.css">
+</head>
+
+<body>
+
+	<div th:replace="fragments/topbarLinks"></div>
+	<div align="center">
+		<h1 class="label" th:text="#{store.welcome}"></h1>
+	</div>
+
+	<div align="center" class="list-container">
+			<h3 th:text="#{store.list}"></h3>
+			
+			<div th:replace="fragments/alert"></div>
+			
+			<table class="table">
+				<thead class="thead-dark">
+					<tr>
+						<th th:text="#{store.id}"></th>
+						<th th:text="#{store.name}"></th>
+						<th th:text="#{store.email}"></th>
+						<th th:text="#{store.cnpj}"></th>
+						<th th:text="#{store.description}"></th>
+						<th th:text="#{object.actions}"></th>
+					</tr>
+				</thead>
+		
+				<tbody>
+					<div th:each="loja : ${listaLojas}">
+						<tr>
+							<td th:text="${loja.id}"></td>
+							<td th:text="${loja.nome}"></td>
+							<td th:text="${loja.username}"></td>
+							<td th:text="${loja.CNPJ}"></td>
+							<td th:text="${loja.descricao}"></td>
+							<td colspan="2">
+								<a class="btn btn-info btn-sm" th:href="@{/loja/editar/{id} (id=${loja.id})}" role="button">
+								<span class="oi oi-brush" th:title="#{object.update}" aria-hidden="true"></span>
+								</a>
+								
+								<button th:id="${'btn_loja/remover/' + loja.id}" class="btn btn-danger btn-sm" id="botao-delete" type="button"
+									data-toggle="modal" data-target="#myModal">
+									<span class="oi oi-circle-x" th:title="#{object.delete}" aria-hidden="true"></span>
+								</button>
+							</td>
+						</tr>
+					</div>
+				</tbody>
+			</table>
+		<div class="adiciona">
+			<a th:href="@{/loja/cadastrar}" th:text="#{store.add}"></a>
+		</div>
+	</div>
+	
+	<div th:replace="fragments/modal :: modal"></div>
+</body>
+	
+	<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+	<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+	<script src="/js/modal.js"></script>
+</html>

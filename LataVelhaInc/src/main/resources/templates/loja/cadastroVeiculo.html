@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8" />
+    <title th:text="#{customer.register.title}"></title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
+	<link th:href="@{/webjars/open-iconic/font/css/open-iconic-bootstrap.min.css}" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/global.css">
+    <link rel="stylesheet" href="/css/cadastro.css">
+</head>
+
+<body>
+
+    <section class="layout-content">
+
+        <div th:replace="fragments/topbarLinks"></div>
+
+        <div class="container" id="cadastro">
+
+            <div th:replace="fragments/alert"></div>
+
+            <form th:action="${veiculo.id == null} ? @{/veiculo/salvar} : @{/veiculo/editar}" th:object="${veiculo}"
+                method="POST">
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label th:text="#{vehicle.model}" for="modelo"></label>
+                        <input type="text" class="form-control" id="nome" th:placeholder="#{vehicle.model.place}" th:field="*{modelo}"
+                            th:classappend="${#fields.hasErrors('modelo')} ? is-invalid" />
+
+                        <div class="invalid-feedback">
+                            <span th:errors="*{modelo}"></span>
+                        </div>                    
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label th:text="#{vehicle.license}" for="placa"></label>
+                        <input type="text" class="form-control" id="nome" th:placeholder="#{vehicle.license.place}" th:field="*{placa}"
+                            th:classappend="${#fields.hasErrors('placa')} ? is-invalid" />
+
+                        <div class="invalid-feedback">
+                            <span th:errors="*{placa}"></span>
+                        </div>                    
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label th:text="#{vehicle.chassis}" for="chassi"></label>
+                        <input type="text" class="form-control" id="nome" th:placeholder="#{vehicle.chassis.place}" th:field="*{chassi}"
+                            th:classappend="${#fields.hasErrors('chassi')} ? is-invalid" data-mask="000 00000 0 00 000000" data-mask-reverse="true" />
+
+                        <div class="invalid-feedback">
+                            <span th:errors="*{chassi}"></span>
+                        </div>                    
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label th:text="#{vehicle.mileage}" for="quilometragem"></label>
+                        <input type="text" class="form-control" id="nome" th:placeholder="#{vehicle.mileage.place}" th:field="*{quilometragem}"
+                            th:classappend="${#fields.hasErrors('quilometragem')} ? is-invalid" />
+
+                        <div class="invalid-feedback">
+                            <span th:errors="*{quilometragem}"></span>
+                        </div>                    
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label th:text="#{vehicle.year}" for="ano"></label>
+                        <input type="text" class="form-control" id="nome" th:placeholder="#{vehicle.year.place}" th:field="*{ano}"
+                            th:classappend="${#fields.hasErrors('ano')} ? is-invalid" data-mask="0000" data-mask-reverse="false" />
+
+                        <div class="invalid-feedback">
+                            <span th:errors="*{ano}"></span>
+                        </div>                    
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label th:text="#{vehicle.value}" for="preco"></label>
+                        <input type="text" class="form-control" id="nome" th:placeholder="#{vehicle.value.place}" th:field="*{preco}"
+                            th:classappend="${#fields.hasErrors('preco')} ? is-invalid" />
+
+                        <div class="invalid-feedback">
+                            <span th:errors="*{preco}"></span>
+                        </div>                    
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label th:text="#{vehicle.description}" for="descricao"></label>
+                        <input type="text" class="form-control" id="nome" th:placeholder="#{vehicle.description.place}" th:field="*{descricao}"
+                            th:classappend="${#fields.hasErrors('descricao')} ? is-invalid" />
+
+                        <div class="invalid-feedback">
+                            <span th:errors="*{descricao}"></span>
+                        </div>                    
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label th:text="#{vehicle.storeCNPJ}" for="loja.CNPJ"></label>
+                        <input type="text" class="form-control" id="nome" th:field="${veiculo.loja.CNPJ}" readonly/>                  
+                    </div>
+                </div>
+                <input type="hidden" id="id" th:field="*{loja}" />
+                <input type="hidden" id="id" th:field="*{id}" />
+                <div class="divSalvar">
+                    <!--<a id="deletar" th:href="@{/veiculo/remover/{id} (id=${id})}" th:text="#{object.delete}" class="btn btn-primary btn-sm" th:if="${veiculo.id != null}"></a>-->
+                    <button id="salvar" type="submit" th:text="#{object.save}" class="btn btn-primary btn-sm"></button>
+                </div>
+            </form>
+            <div id="fotos" th:if="${veiculo.id != null}">
+                <form method="POST" th:action="@{/veiculo/uploadFile/{id} (id=${veiculo.id})}" enctype="multipart/form-data">
+                    Choose a file: <input type="file" name="file" style="font-size: 14px;" accept=".jpg" required/><input type="submit" value="Upload" style="font-size: 14px;"/>
+                </form>
+                <br/>
+                <div th:if="${sucess} != null">
+                    <span> <strong th:text="${sucess}"></strong></span>
+                </div>
+            
+                <ul th:each="file : ${files}">
+                    <li><img th:src="@{/images/{id}/{file} (id=${veiculo.id},file=${file})}" height="120px" th:text="${file}"></img></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+</body>
+
+<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<script th:src="@{/webjars/jquery-mask-plugin/dist/jquery.mask.min.js}"></script>
+
+</html>
