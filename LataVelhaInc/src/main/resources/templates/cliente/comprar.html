@@ -19,13 +19,17 @@
 <body>
 	<div th:replace="fragments/topbarLinks"></div>
 	<section class="carro">
-		<div id="carouselExampleControls" class="carousel slide fotos" data-ride="carousel">
+		<div class="carousel slide fotos" id="carouselExampleControls" data-ride="carousel">
 			<div class="carousel-inner">
 				<div class="carousel-item active">
-					<img class="d-block w-100" th:src="@{http://localhost:8080/images/{id}/{file} (id=${veiculo.id},file='1.jpg')}" alt="Carro" height="440px">
+					<img class="d-block w-100"
+						th:src="@{http://localhost:8080/images/{id}/{file} (id=${veiculo.id},file='1.jpg')}" alt="Carro"
+						height="440px">
 				</div>
 				<div class="carousel-item" th:each="file: ${files}">
-					<img class="d-block w-100" th:src="@{http://localhost:8080/images/{id}/{file} (id=${veiculo.id},file=${file})}" alt="Carro" height="440px">
+					<img class="d-block w-100"
+						th:src="@{http://localhost:8080/images/{id}/{file} (id=${veiculo.id},file=${file})}" alt="Carro"
+						height="440px">
 				</div>
 			</div>
 			<a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -37,7 +41,12 @@
 				<span class="sr-only">Próximo</span>
 			</a>
 		</div>
+		<!-- <img class="d-block w-100"
+						th:src="@{http://localhost:8080/images/{id}/{file} (id=${veiculo.id},file='1.jpg')}" alt="Carro"
+						height="440px"> -->
+
 		<div class="info">
+
 			<ul class="dadosCarro">
 				<li class="nomeModelo"
 					th:text="${veiculo.modelo} + ' '+  ${veiculo.ano} + ' - ' + ${veiculo.quilometragem} + 'km'"></li>
@@ -47,18 +56,21 @@
 				<li id="preco" th:text="'R$' + ${veiculo.preco}"></li>
 			</ul>
 
+			<!-- Casos: -->
 			<div th:with="aberta=${proposta_aberta},aceita=${proposta_aceita},vendido=${ja_vendido}">
-				<form id="form_proposta" th:action="@{/proposta/salvar}" method="post" th:object="${proposta}">
-					<input type="hidden" th:field="*{cliente}" id="cliente">
-					<input type="hidden" th:field="*{loja}" id="loja">
-					<input type="hidden" th:field="*{veiculo}" id="veiculo">
-					<input type="hidden" th:field="*{data}" id="data">
-					<input type="hidden" th:field="*{estado}" id="estado">
 
-					<div th:if="${aceita == null && aberta == null && vendido == null}">
+				<!-- Caso em que carro esta disponivel e cliente pode fazer proposta -->
+				<div th:if="${aceita == null && aberta == null && vendido == null}">
+					<form id="form_proposta" th:action="@{/proposta/salvar}" method="post" th:object="${proposta}">
+						<input type="hidden" th:field="*{cliente}" id="cliente">
+						<input type="hidden" th:field="*{loja}" id="loja">
+						<input type="hidden" th:field="*{veiculo}" id="veiculo">
+						<input type="hidden" th:field="*{data}" id="data">
+						<input type="hidden" th:field="*{estado}" id="estado">
+
 						<div style="display: inline-block;">
 							<input id="pvalor" type="number" name="valor" th:placeholder="#{bids.value}"
-								th:field="*{valor}" th:classappend="${#fields.hasErrors('valor')} ? is-invalid" />
+								th:field="*{valor}" th:classappend="${#fields.hasErrors('valor')} ? is-invalid">
 							<div class="invalid-feedback">
 								<span th:errors="*{valor}"></span>
 							</div>
@@ -66,52 +78,57 @@
 						<div style="display: inline-block;">
 							<input id="pparcelas" type="number" name="parcelamento"
 								th:placeholder="#{bids.number.installments}" th:field="*{parcelamento}"
-								th:classappend="${#fields.hasErrors('parcelamento')} ? is-invalid" />
+								th:classappend="${#fields.hasErrors('parcelamento')} ? is-invalid">
 							<div class="invalid-feedback">
 								<span th:errors="*{parcelamento}"></span>
 							</div>
 						</div>
-						<input id="proposta" type="submit" name="Proposta" th:value="#{bids.make}" />
-					</div>
-					
-					<div th:if="${aberta != null}">
-						<h5 class="label" th:text=#{customer.open.bid}></h5>
-						<table class="propostas">
-							<thead>
-								<tr>
-									<th th:text=#{bids.date}></th>
-									<th th:text=#{bids.value}></th>
-									<th th:text=#{customer.cancel.bid}></th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td th:text=${proposta_aberta.data}></td>
-									<td
-										th:text="'R$' + ${proposta_aberta.valor} + ' ' + ${proposta_aberta.parcelamento}">
-									</td>
-									<td id="botao_cancelar">
-										<a id="remover" th:href="@{/proposta/cancelar/{id}(id=${proposta_aberta.id})}"
-											th:text=#{bids.cancel} /></a>
-									</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
+						<input id="proposta" type="submit" name="Proposta" th:value="#{bids.make}">
+					</form>
+				</div>
 
-					<div th:if="${aceita != null}">
-						<h2 class="label" th:text=#{bids.accepted}></h2>
-					</div>
+				<!-- Caso em que cliente ja fez uma proposta -->
+				<div th:if="${aberta != null}">
+					<p class="label" th:text=#{customer.open.bid}></p>
+					<table class="propostas">
+						<thead>
+							<tr>
+								<th th:text=#{bids.date}></th>
+								<th th:text=#{bids.value}></th>
+								<th th:text=#{customer.cancel.bid}></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td th:text=${proposta_aberta.data}></td>
+								<td th:text="'R$' + ${proposta_aberta.valor} + ' ' + ${proposta_aberta.parcelamento}">
+								</td>
+								<td id="botao_cancelar">
+									<a id="remover" th:href="@{/proposta/cancelar/{id}(id=${proposta_aberta.id})}"
+										th:text=#{bids.cancel} /></a>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
 
-					<div th:if="${vendido != null}">
-						<h2 class="label" th:text=#{bids.sold}></h2>
-					</div>				
-				</form>
+				<!-- Caso em que proposta feita foi aceita -->
+				<div th:if="${aceita != null}">
+					<p class="label" th:text=#{bids.accepted}></p>
+				</div>
+
+				<!-- Caso em que carro ja foi vendido -->
+				<div th:if="${vendido != null}">
+					<p class="label" th:text=#{bids.sold}></p>
+				</div>
 			</div>
+
 			<div class="descricao">
-				<p th:text="#{vehicle.about}" style="font-size: 1.5em; font-weight: bold;"></p>
+				<strong th:text="#{vehicle.about}" style="font-size: 1.5em;"></strong>
 				<p th:text="${veiculo.descricao}"></p>
 			</div>
+
+		</div>
 	</section>
 	<script src="/js/carrossel.js"></script>
 </body>
