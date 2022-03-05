@@ -4,7 +4,8 @@
 
 <head>
 	<title th:text="#{store.list.title}"></title>
-	<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/> -->
 	<link th:href="@{/webjars/open-iconic/font/css/open-iconic-bootstrap.min.css}" rel="stylesheet" />
 	<link rel="stylesheet" href="/css/lojas.css">
 	<link rel="stylesheet" href="/css/global.css">
@@ -38,18 +39,18 @@
 				<tbody>
 					<div th:each="loja : ${listaLojas}">
 						<tr>
-							<td th:text="${loja.id}"></td>
-							<td th:text="${loja.nome}"></td>
-							<td th:text="${loja.username}"></td>
-							<td th:text="${loja.CNPJ}"></td>
-							<td th:text="${loja.descricao}"></td>
-							<td colspan="2">
+							<td data-label="Id" th:text="${loja.id}"></td>
+							<td data-label="Nome" th:text="${loja.nome}"></td>
+							<td data-label="Email" th:text="${loja.username}"></td>
+							<td data-label="CNPJ" th:text="${loja.CNPJ}"></td>
+							<td data-label="Descrição" th:text="${loja.descricao}"></td>
+							<td data-label="Ações" colspan="2">
 								<a class="btn btn-info btn-sm" th:href="@{/loja/editar/{id} (id=${loja.id})}" role="button">
 								<span class="oi oi-brush" th:title="#{object.update}" aria-hidden="true"></span>
 								</a>
 								
-								<button th:id="${'btn_loja/remover/' + loja.id}" class="btn btn-danger btn-sm" id="botao-delete" type="button"
-									data-toggle="modal" data-target="#myModal">
+								<button th:id="${'btn_loja/remover/' + loja.id}" class="btn btn-danger btn-sm" id="botao-delete" type="button">
+									<!-- data-toggle="modal" data-target="#myModal"> -->
 									<span class="oi oi-circle-x" th:title="#{object.delete}" aria-hidden="true"></span>
 								</button>
 							</td>
@@ -62,10 +63,9 @@
 		</div>
 	</div>
 	
-	<div th:replace="fragments/modal :: modal"></div>
+	<!-- <div th:replace="fragments/modal :: modal"></div> -->
 </body>
 	
 	<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
-	<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
-	<script src="/js/modal.js"></script>
+	<!-- <script src="/js/modal.js"></script> -->
 </html>

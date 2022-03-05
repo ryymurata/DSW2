@@ -4,6 +4,10 @@
     padding: 0;
 }
 
+html {
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 body {
 	margin: 0;
 	background-color: rgb(230, 230, 230);
@@ -19,10 +23,8 @@ table {
 }
 
 th, td {
-    border: 2px solid black;
     padding: 8px 15px ;
 }
-
 
 a {
 	display: block;
@@ -151,6 +153,18 @@ a:hover {
 	color: whitesmoke;
 }
 
+@media (max-width: 768px) {
+	.linkTopoEsquerda {
+		display: none;
+	}
+	.lingua {
+		display: none;
+	}
+	.nomeTopoDireita span:first-child {
+		display: none;
+	}
+}
+
 /*CRUD DE ADMIN*/
 #crudLinks {
 	background-color: rgb(43, 43, 43);
@@ -159,7 +173,7 @@ a:hover {
 	border: 2px solid rgb(32, 32, 32);
 	border-radius: 20px;
 	text-align: center;
-	width: 600px;
+	width: fit-content;
 	height: fit-content;
 	margin-top: 200px;
 	padding: 20px;

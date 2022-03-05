@@ -3,15 +3,27 @@
     margin-top: 100px;
     margin-bottom: 80px;
     width: 70%;
-    background-color:#fafafa;
+    background-color: #fafafa;
     border-radius: 10px;
-	box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.205);
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.205);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 }
 
 .fotos {
     float: left;
     width: 680px;
     overflow: hidden;
+}
+
+.image {
+    float: left;
+    width: 100%;
+    /* height: auto; */
+    border-radius: 10px;
 }
 
 .info {
@@ -24,7 +36,7 @@
     list-style-type: none;
 }
 
-.dadosCarro > li {
+.dadosCarro>li {
     margin-inline: 30px;
 }
 
@@ -121,47 +133,60 @@ table {
 }
 
 @media (min-width: 901px) and (max-width: 1600px) {
-	.carro {
-		width: 80%;
-	}
+    .carro {
+        width: 80%;
+    }
+
     .descricao {
         clear: both;
     }
+
     .info {
         width: 100%;
         height: fit-content;
         clear: both;
         margin: 0;
     }
+
     .fotos {
         clear: both;
         float: none;
         margin: auto;
     }
+
     .dadosCarro {
         text-align: center;
     }
 }
 
 @media (max-width: 900px) {
-	.carro {
-		width: 95%;
-	}
+    .carro {
+        width: 95%;
+    }
+
+    .grid {
+        display: block;
+    }
+
     .descricao {
         clear: both;
+        padding: 50px;
     }
+
     .info {
         width: 100%;
         height: fit-content;
         clear: both;
         margin: 0;
     }
+
     .fotos {
         clear: both;
         float: none;
         margin: auto;
         width: fit-content;
     }
+
     .dadosCarro {
         text-align: center;
     }

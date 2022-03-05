@@ -7,7 +7,6 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title th:text=#{customer.bids.title}></title>
-	<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
 	<link th:href="@{/webjars/open-iconic/font/css/open-iconic-bootstrap.min.css}" rel="stylesheet" />
 	<link rel="stylesheet" href="/css/global.css">
 	<link rel="stylesheet" href="/css/propostas.css">
@@ -37,18 +36,18 @@
 	
 				<tbody>
 					<tr th:each="proposta : ${propostas}">
-						<td th:text="${proposta.cliente.username}"></td>
-						<td th:text="${proposta.data}"></td>
-						<td>
+						<td data-label="Email do Cliente" th:text="${proposta.cliente.username}"></td>
+						<td data-label="Data" th:text="${proposta.data}"></td>
+						<td data-label="Foto">
 							<img th:src="@{http://localhost:8080/images/{id}/{file} (id=${proposta.veiculo.id},file='1.jpg')}" alt="Carro" height="80px"
 								width="120px">
 						</td>
-						<td th:text="${proposta.veiculo.modelo}"></td>
-						<td th:text="${proposta.veiculo.preco}"></td>
-						<td th:text="${proposta.parcelamento}"> </td>
-						<td th:text="${proposta.loja.nome}"></td>
-						<td th:text="${proposta.valor}"></td>
-						<td class="estado">
+						<td data-label="Veiculo" th:text="${proposta.veiculo.modelo}"></td>
+						<td data-label="Valor" th:text="${proposta.veiculo.preco}"></td>
+						<td data-label="Parcelamento" th:text="${proposta.parcelamento}"> </td>
+						<td data-label="Loja" th:text="${proposta.loja.nome}"></td>
+						<td data-label="Proposta" th:text="${proposta.valor}"></td>
+						<td data-label="Status" class="estado">
 							<div th:switch="${proposta.estado}">
 								<p th:case="'ACEITO'" th:text=#{bids.accepted}></p>
 								<p th:case="'ABERTO'" th:text=#{bids.open}></p>

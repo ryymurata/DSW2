@@ -4,8 +4,9 @@
 
 <head>
 	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title th:text="#{customer.list.title}"></title>
-	<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
+	<!-- <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/> -->
 	<link th:href="@{/webjars/open-iconic/font/css/open-iconic-bootstrap.min.css}" rel="stylesheet" />
 	<link rel="stylesheet" href="/css/lojas.css">
 	<link rel="stylesheet" href="/css/global.css">
@@ -41,21 +42,21 @@
 			<tbody>
 				<div th:each="cliente, iter : ${listaClientes}">
 					<tr>
-						<td th:text="${cliente.id}"></td>
-						<td th:text="${cliente.nome}"></td>
-						<td th:text="${cliente.username}"></td>
-						<td th:text="${cliente.CPF}"></td>
-						<td th:text="${cliente.telefone}"></td>
-						<td th:text="${cliente.sexo}"></td>
-						<td th:text="${cliente.nascimento}"></td>
-						<td colspan="2">
+						<td data-label="Id" th:text="${cliente.id}"></td>
+						<td data-label="Nome" th:text="${cliente.nome}"></td>
+						<td data-label="Email" th:text="${cliente.username}"></td>
+						<td data-label="CPF" th:text="${cliente.CPF}"></td>
+						<td data-label="Telefone" th:text="${cliente.telefone}"></td>
+						<td data-label="Sexo" th:text="${cliente.sexo}"></td>
+						<td data-label="Nascimento" th:text="${cliente.nascimento}"></td>
+						<td data-label="Ações" colspan="2">
 							<a class="btn btn-info btn-sm" th:href="@{/cliente/editar/{id} (id=${cliente.id})}"
 								role="button">
 								<span class="oi oi-brush" th:title="#{object.update}" aria-hidden="true"></span>
 							</a>
 
-							<button th:id="${'btn_cliente/remover/' + cliente.id}" class="btn btn-danger btn-sm" id="botao-delete" type="button"
-									data-toggle="modal" data-target="#myModal">
+							<button th:id="${'btn_cliente/remover/' + cliente.id}" class="btn btn-danger btn-sm" id="botao-delete" type="button">
+									<!-- data-toggle="modal" data-target="#myModal"> -->
 									<span class="oi oi-circle-x" th:title="#{object.delete}" aria-hidden="true"></span>
 							</button>
 							
@@ -69,9 +70,9 @@
 		</div>
 	</div>
 	
-	<div th:replace="fragments/modal :: modal"></div>
+	<!-- <div th:replace="fragments/modal :: modal"></div> -->
 </body>
 	<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
-	<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+	<!-- <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script> -->
 	<script src="/js/modal.js"></script>
 </html>
