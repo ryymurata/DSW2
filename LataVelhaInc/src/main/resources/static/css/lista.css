@@ -8,6 +8,7 @@
 .table {
     display: flex;
     flex-direction: column;
+    text-align: center;
 }
 
 .table thead tr {
@@ -27,15 +28,12 @@
 
 .table thead tr th, .table tbody tr td {
     display: flex;
+    justify-content: space-around;
     flex: 1;
     padding: 0%;
 }
 
-.actions {
-    margin-right: 0.5em;
-}
-
-.actions span {
+a span {
     font-size: 2em; 
 }
 

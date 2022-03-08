@@ -8,7 +8,6 @@
 	<title th:text="#{customer.list.title}"></title>
 	<!-- <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/> -->
 	<!-- <link th:href="@{/webjars/open-iconic/font/css/open-iconic-bootstrap.min.css}" rel="stylesheet" /> -->
-	<link rel="stylesheet" href="/css/lojas.css">
 	<link rel="stylesheet" href="/css/global.css">
 	<link rel="stylesheet" href="/css/lista.css">
 </head>
@@ -22,8 +21,8 @@
 
 	<div class="list-container">
 		<h2 th:text="#{customer.list}"></h2>
-
 		<!-- <div th:replace="fragments/alert"></div> -->
+		<a class="adiciona" th:href="@{/cliente/cadastrar}" th:text="#{customer.add}"></a>
 
 		<table class="table">
 			<thead class="thead-dark">
@@ -50,28 +49,26 @@
 						<td data-label="Sexo" th:text="${cliente.sexo}"></td>
 						<td data-label="Nascimento" th:text="${cliente.nascimento}"></td>
 						<td data-label="Ações" colspan="2">
-							<a class="actions" th:href="@{/cliente/editar/{id} (id=${cliente.id})}"
-								role="button">
+							<a class="actions" th:href="@{/cliente/editar/{id} (id=${cliente.id})}" role="button">
 								<span th:title="#{object.update}" aria-hidden="true">&#x1F58C;</span>
 							</a>
 
 							<a class="actions" th:href="@{/cliente/remover/{id} (id=${cliente.id})}" role="button">
 								<span th:title="#{object.update}">&#x1F5D1;</span>
 							</a>
-							
+
 						</td>
 					</tr>
 				</div>
 			</tbody>
 		</table>
-		<div class="adiciona">
-			<a th:href="@{/cliente/cadastrar}" th:text="#{customer.add}"></a>
-		</div>
+
 	</div>
-	
+
 	<!-- <div th:replace="fragments/modal :: modal"></div> -->
 </body>
-	<!-- <script th:src="@{/webjars/jquery/jquery.min.js}"></script> -->
-	<!-- <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script> -->
-	<!-- <script src="/js/modal.js"></script> -->
+<!-- <script th:src="@{/webjars/jquery/jquery.min.js}"></script> -->
+<!-- <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script> -->
+<!-- <script src="/js/modal.js"></script> -->
+
 </html>

@@ -18,8 +18,8 @@
 
 	<div class="list-container">
 			<h2 th:text="#{store.list}"></h2>
-			
 			<!-- <div th:replace="fragments/alert"></div> -->
+			<a class="adiciona" th:href="@{/loja/cadastrar}" th:text="#{store.add}"></a>
 			
 			<table class="table">
 				<thead>
@@ -42,11 +42,11 @@
 							<td data-label="CNPJ" th:text="${loja.CNPJ}"></td>
 							<td data-label="Descrição" th:text="${loja.descricao}"></td>
 							<td data-label="Ações" colspan="2">
-								<a class="actions" th:href="@{/loja/editar/{id} (id=${loja.id})}" role="button">
+								<a th:href="@{/loja/editar/{id} (id=${loja.id})}" role="button">
 									<span th:title="#{object.update}">&#x1F58C;</span>
 								</a>
 								
-								<a class="actions" th:href="@{/loja/remover/{id} (id=${loja.id})}" role="button">
+								<a th:href="@{/loja/remover/{id} (id=${loja.id})}" role="button">
 									<span th:title="#{object.update}">&#x1F5D1;</span>
 								</a>
 							</td>
@@ -54,9 +54,7 @@
 					</div>
 				</tbody>
 			</table>
-		<div class="adiciona">
-			<a th:href="@{/loja/cadastrar}" th:text="#{store.add}"></a>
-		</div>
+		
 	</div>
 	
 	<!-- <div th:replace="fragments/modal :: modal"></div> -->

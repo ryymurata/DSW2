@@ -16,9 +16,7 @@ body {
 }
 
 table {
-	border-collapse: collapse;
-	margin: auto;
-	margin-top: 50px;
+	margin: 2em auto;
 	text-align: center;
 }
 
@@ -184,28 +182,20 @@ a:hover {
 	font-size: 3em;
 }
 
-#crud1 a:hover  {
-	color: whitesmoke;
-}
-
-#crud2 a:hover  {
+.crud a:hover  {
 	color: whitesmoke;
 }
 
 .label {
 	text-align: center;
-	padding: 20px;
 	margin-top: 50px;
 }
 
-.adiciona {
-	padding: 20px;
-}
-
-.adiciona a, td a {
-	display: block;
+.adiciona, td a {
+	margin: 30px 0;
 	color: rgb(255, 0, 0);
 }
+
 
 /*PARTE DA PAGINA DE LOGIN*/
 .boxLogin {
