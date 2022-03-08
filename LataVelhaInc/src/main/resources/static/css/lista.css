@@ -5,14 +5,6 @@
     text-align: center;
 }
 
-#botao-delete{
-	background-color: red;
-}
-
-#botao-delete:hover {
-	background-color: rgb(202, 0, 0);
-}
-
 .table {
     display: flex;
     flex-direction: column;
@@ -37,6 +29,14 @@
     display: flex;
     flex: 1;
     padding: 0%;
+}
+
+.actions {
+    margin-right: 0.5em;
+}
+
+.actions span {
+    font-size: 2em; 
 }
 
 @media screen and (max-width: 1200px) {
