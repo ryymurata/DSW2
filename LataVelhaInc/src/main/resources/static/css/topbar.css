@@ -1,0 +1,131 @@
+#titulo {
+	font-size: 1.6em;
+	font-family: 'Gugi', cursive, Arial, sans-serif;
+	color: red;
+}
+
+.topbar {
+	position: fixed;
+	top: 0;
+	width: 70%;
+}
+
+.topbar-support {
+	background-color: rgb(43, 43, 43);
+	box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.24);
+	position: fixed;
+	top: 0;
+	height: 60px;
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	z-index: 10;
+}
+
+#admin, #corporativo {
+	font-size: 0.8em;
+	color: whitesmoke;
+}
+
+.logo {
+	float: left;
+	padding: 14px 16px;
+}
+
+.linkTopoEsquerda {
+	float: left;
+	text-align: center;
+}
+
+.linkTopoDireita {
+	float: right;
+	text-align: center;
+}
+
+.linkTopo:hover {
+	background-color: rgba(175, 0, 0, 0.349);
+}
+
+.linkTopo a {
+	padding: 21px 16px;
+}
+
+.linkTopo:hover a {
+	color: whitesmoke;
+}
+
+.nomeTopoDireita {
+	float: right;
+	text-align: center;
+	padding: 21px 16px;
+	position: relative;
+}
+
+.nomeTopoDireita > span {
+	color: rgb(182, 182, 182);
+}
+
+.dropdown  {
+	display: none;
+	position: absolute;
+	top: 60px;
+	right: 0;
+	background-color: rgb(43, 43, 43);
+	border-bottom-left-radius: 16px;
+	border-bottom-right-radius: 16px;
+}
+
+.nomeTopoDireita:hover .dropdown {
+	display: block;
+}
+
+.nomeTopoDireita:hover, .dropdown:hover form{
+	background-color: rgba(175, 0, 0, 0.349);
+}
+
+.dropdown form {
+	box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.24);
+	border-bottom-left-radius: 16px;
+	border-bottom-right-radius: 16px;
+}
+
+.dropdown li {
+	float: right;
+	list-style-type: none;
+	width: inherit;
+}
+
+.dropdown li a {
+	padding: 21px 16px;
+}
+
+.dropdown li:hover a, .nomeTopoDireita:hover span {
+	color: whitesmoke;
+}
+
+@media (max-width: 1300px) {
+	.topbar {
+		width: 100%;
+		height: fit-content;
+	}
+}
+
+@media (max-width: 768px) {
+	#titulo , .lingua , .nomeTopoDireita span:first-child {
+		display: none;
+	}
+
+    .logo a::before{
+        content: "LV.";
+        font-size: 1.6em;
+        font-family: 'Gugi', cursive, Arial, sans-serif;
+        color: red;
+    }
+}
+
+/* Icones do open icons*/
+.oi-caret-bottom {
+	font-size: 10px;
+}
