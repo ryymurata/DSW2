@@ -10,111 +10,49 @@
 
 .grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1.5fr 1fr;
+    font-size: 1.2em;
 }
 
-.fotos {
-    float: left;
-    width: 680px;
-    overflow: hidden;
-}
-
-.image {
-    float: left;
-    width: 100%;
-    /* height: auto; */
+/* Foto Carro*/
+.grid img {
+    width: 100%; 
     border-radius: 10px;
 }
 
-.info {
-    margin: 30px;
+/* Dados Carro*/
+.grid ul {
+    text-align: center;
 }
 
-.dadosCarro {
-    text-align: end;
-    font-size: 1.4em;
-    list-style-type: none;
+/* Nome do carro */
+.grid ul li:first-child {
+    font-size: 1.5em;
+    font-weight: bolder;
+    padding-block: 30px;
 }
 
-.dadosCarro>li {
-    margin-inline: 30px;
-}
-
-.descricao {
-    padding: 120px;
-    clear: both;
-    font-size: 1.1em;
-}
-
-#preco {
+/* Preço */
+.grid ul li:last-child {
     padding-top: 30px;
     font-size: 1.8em;
     font-weight: bold;
     color: red;
 }
 
-.nomeModelo {
-    font-size: 1.5em;
-    font-weight: bolder;
-    padding-top: 30px;
-    padding-bottom: 30px;
+.grid ul li {
+    margin-inline: 30px;
+}
+
+.descricao {
+    padding: 120px;
 }
 
 input {
     margin-top: 20px;
     padding: 14px;
     border-radius: 16px;
-    font-size: 1.1em;
     border-color: rgba(255, 255, 255, 0);
-}
-
-#pvalor, #pparcelas {
-    width: 150px;
-    background-color: #e6e6e6;
-}
-
-li img {
-    width: 600px;
-    height: 400px;
-    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.205);
-}
-
-.propostas {
-    background-color: #e6e6e6;
-    border-radius: 16px;
-    box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.226);
-}
-
-#proposta {
-    font-weight: bold;
-    background-color: transparent;
-    border: 2px solid #e74c3c;
-    color: #e74c3c;
-    cursor: pointer;
-    -webkit-transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
-    transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
-    display: block;
-    margin-inline: auto;
-    width: 304px;
-}
-
-#proposta:hover {
-    box-shadow: 0 0 40px 40px #e74c3c inset;
-    color: #e6e6e6;
-}
-
-td, th {
-    border: none;
-}
-
-table {
-    margin-top: 2px;
-}
-
-#botao_cancelar {
-    background-color: #2b2b2b;
-    border-bottom-right-radius: 16px;
-    border-top-left-radius: 16px;
 }
 
 #form_proposta {
@@ -122,8 +60,48 @@ table {
     text-align: center;
 }
 
-.carousel-inner {
-    border-top-left-radius: 10px;
+#form_proposta > div {
+    display: inline-grid;
+}
+
+/* Botoes com valores de proposta */
+#form_proposta div input {
+    width: 150px;
+    background-color: #e6e6e6;
+    font-size: .9em;
+    margin-inline: 15px;
+}
+
+/* Botao fazer proposta */
+#form_proposta > input {
+    font-weight: bold;
+    font-size: 1.1em;
+    background-color: transparent;
+    border: 2px solid #e74c3c;
+    color: #e74c3c;
+    cursor: pointer;
+    -webkit-transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+    transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+    margin-inline: 30px;
+    width: -webkit-fill-available;
+}
+
+#form_proposta > input:hover {
+    box-shadow: 0 0 40px 40px #e74c3c inset;
+    color: #e6e6e6;
+}
+
+.propostas {
+    background-color: #e6e6e6;
+    border-radius: 16px;
+    box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.226);
+    margin: 30px;
+}
+
+#botao_cancelar {
+    background-color: #2b2b2b;
+    border-bottom-right-radius: 16px;
+    border-top-left-radius: 16px;
 }
 
 .label {
@@ -135,27 +113,6 @@ table {
 @media (min-width: 901px) and (max-width: 1600px) {
     .carro {
         width: 80%;
-    }
-
-    .descricao {
-        clear: both;
-    }
-
-    .info {
-        width: 100%;
-        height: fit-content;
-        clear: both;
-        margin: 0;
-    }
-
-    .fotos {
-        clear: both;
-        float: none;
-        margin: auto;
-    }
-
-    .dadosCarro {
-        text-align: center;
     }
 }
 
@@ -169,26 +126,6 @@ table {
     }
 
     .descricao {
-        clear: both;
         padding: 50px;
     }
-
-    .info {
-        width: 100%;
-        height: fit-content;
-        clear: both;
-        margin: 0;
-    }
-
-    .fotos {
-        clear: both;
-        float: none;
-        margin: auto;
-        width: fit-content;
-    }
-
-    .dadosCarro {
-        text-align: center;
-    }
-
 }

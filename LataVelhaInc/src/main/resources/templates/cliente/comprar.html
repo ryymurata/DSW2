@@ -15,19 +15,17 @@
 	<div th:replace="fragments/topbarLinks"></div>
 	<section class="carro">
 		<div class="grid">
-			<img class="image" th:src="@{http://localhost:8080/images/{id}/{file} (id=${veiculo.id},file='1.jpg')}"
-				alt="Carro" height="440px">
+			<img th:src="@{http://localhost:8080/images/{id}/{file} (id=${veiculo.id},file='1.jpg')}" alt="Carro"
+				height="440px">
 
-			<div class="info">
-
-				<ul class="dadosCarro">
-					<li class="nomeModelo"
-						th:text="${veiculo.modelo} + ' '+  ${veiculo.ano} + ' - ' + ${veiculo.quilometragem} + 'km'">
+			<div>
+				<ul>
+					<li th:text="${veiculo.modelo} + ' '+  ${veiculo.ano} + ' - ' + ${veiculo.quilometragem} + 'km'">
 					</li>
 					<li th:text="${veiculo.loja.nome}"></li>
 					<li th:text="#{vehicle.license} + ': ' + ${veiculo.placa} "></li>
 					<li th:text="#{vehicle.chassis} + ': ' + ${veiculo.chassi} "></li>
-					<li id="preco" th:text="'R$' + ${veiculo.preco}"></li>
+					<li th:text="'R$' + ${veiculo.preco}"></li>
 				</ul>
 
 				<!-- Casos: -->
@@ -41,23 +39,22 @@
 							<input type="hidden" th:field="*{veiculo}" id="veiculo">
 							<input type="hidden" th:field="*{data}" id="data">
 							<input type="hidden" th:field="*{estado}" id="estado">
-
-							<div style="display: inline-block;">
-								<input id="pvalor" type="number" name="valor" th:placeholder="#{bids.value}"
-									th:field="*{valor}" th:classappend="${#fields.hasErrors('valor')} ? is-invalid">
+							<div>
+								<input type="number" name="valor" th:placeholder="#{bids.value}" th:field="*{valor}"
+									th:classappend="${#fields.hasErrors('valor')} ? is-invalid">
 								<div class="invalid-feedback">
 									<span th:errors="*{valor}"></span>
 								</div>
 							</div>
-							<div style="display: inline-block;">
-								<input id="pparcelas" type="number" name="parcelamento"
-									th:placeholder="#{bids.number.installments}" th:field="*{parcelamento}"
+							<div>
+								<input type="number" name="parcelamento" th:placeholder="#{bids.number.installments}"
+									th:field="*{parcelamento}"
 									th:classappend="${#fields.hasErrors('parcelamento')} ? is-invalid">
 								<div class="invalid-feedback">
 									<span th:errors="*{parcelamento}"></span>
 								</div>
 							</div>
-							<input id="proposta" type="submit" name="Proposta" th:value="#{bids.make}">
+							<input type="submit" name="Proposta" th:value="#{bids.make}">
 						</form>
 					</div>
 
