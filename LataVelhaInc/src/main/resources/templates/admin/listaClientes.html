@@ -15,9 +15,8 @@
 <body>
 
 	<div th:replace="fragments/topbarLinks"></div>
-	<div>
-		<h1 class="label" th:text="#{customer.welcome}"></h1>
-	</div>
+
+	<h1 class="label" th:text="#{customer.welcome}"></h1>
 
 	<div class="list-container">
 		<h2 th:text="#{customer.list}"></h2>
@@ -54,7 +53,7 @@
 							</a>
 
 							<a class="actions" th:href="@{/cliente/remover/{id} (id=${cliente.id})}" role="button">
-								<span th:title="#{object.update}">&#x1F5D1;</span>
+								<span th:title="#{object.delete}">&#x1F5D1;</span>
 							</a>
 
 						</td>

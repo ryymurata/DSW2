@@ -100,7 +100,7 @@
             </form>
             <div id="fotos" th:if="${veiculo.id != null}">
                 <form method="POST" th:action="@{/veiculo/uploadFile/{id} (id=${veiculo.id})}" enctype="multipart/form-data">
-                    Choose a file: <input type="file" name="file" style="font-size: 14px;" accept=".jpg" required/><input type="submit" value="Upload" style="font-size: 14px;"/>
+                    Escolha uma foto: <input type="file" name="file" style="font-size: 14px;" accept=".jpg" required/><input type="submit" value="Upload" style="font-size: 14px;"/>
                 </form>
                 <br/>
                 <div th:if="${sucess} != null">

@@ -123,15 +123,6 @@
 	}
 }
 
-#linkAdicionar{
-	margin-top: 90px;
-    text-align: center;
-    color: red;
-    font-size: larger;
-    margin-bottom: 3px;
-    text-decoration: underline;
-}
-
 #deletar {
     width: 100%;
     border-radius: 0 0 10px 10px;

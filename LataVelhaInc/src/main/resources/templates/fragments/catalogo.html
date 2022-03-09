@@ -1,6 +1,6 @@
 <section id="carros">
     <div th:replace="fragments/alert"></div>
-    <a href="/veiculo/adicionar" sec:authorize="hasRole('ROLE_LOJA')" id="linkAdicionar" th:text="#{vehicle.add}"></a>
+    <a class="adiciona" href="/veiculo/adicionar" sec:authorize="hasRole('ROLE_LOJA')" th:text="#{vehicle.add}"></a>
     <div id="divFiltro">
         <input type="text" name="Filtro" th:placeholder="#{filter.label}" id="filtro" onfocus="comecar()" onblur="parar()">
         <span id="legendaN" th:text=#{filter.count}></span>

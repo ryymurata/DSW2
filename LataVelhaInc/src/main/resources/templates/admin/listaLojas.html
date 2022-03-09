@@ -20,7 +20,7 @@
 			<h2 th:text="#{store.list}"></h2>
 			<!-- <div th:replace="fragments/alert"></div> -->
 			<a class="adiciona" th:href="@{/loja/cadastrar}" th:text="#{store.add}"></a>
-			
+
 			<table class="table">
 				<thead>
 					<tr>
@@ -47,7 +47,7 @@
 								</a>
 								
 								<a th:href="@{/loja/remover/{id} (id=${loja.id})}" role="button">
-									<span th:title="#{object.update}">&#x1F5D1;</span>
+									<span th:title="#{object.delete}">&#x1F5D1;</span>
 								</a>
 							</td>
 						</tr>

@@ -48,11 +48,6 @@
     content: attr(data-label);
 }
 
-.acao {
-    background-color: rgb(230, 230, 230);
-    border-color: rgb(230, 230, 230);
-}
-
 #aceitar, #negar {
     width: 100px;
     border-radius: 4px;
@@ -88,11 +83,7 @@
 }
 
 #mensagem {
-    width: 100%;
-}
-
-.box_mensagem {
-    border: none;
+    width: 60%;
 }
 
 /* Large desktop */

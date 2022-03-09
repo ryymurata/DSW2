@@ -64,13 +64,13 @@
 								</span>
 							</div>
 						</td>
-						<div th:if="${proposta.estado} == 'ABERTO'" sec:authorize="hasRole('ROLE_LOJA')">
-							<td class="box_mensagem">
+						<td th:if="${proposta.estado} == 'ABERTO'" sec:authorize="hasRole('ROLE_LOJA')">
+							<div>
 								<h5 th:text=#{store.send.message}></h5>
 								<textarea name="mensagem" id="mensagem" cols="40" rows="5"></textarea>
 								<input th:value="@{#{bids.save}}" type="button" id="salvar_mensagem" onclick="msg_email()"/>
-							</td>
-						</div>
+							</div>
+						</td>
 					</tr>
 				</tbody>
 			</table>
