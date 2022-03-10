@@ -17,6 +17,7 @@
 /* Foto Carro*/
 .grid img {
     width: 100%; /*medidas-relativas*/
+    height: -webkit-fill-available;
     border-radius: 10px;
 }
 
@@ -110,13 +111,13 @@ input {
     font-weight: bold;
 }
 
-@media (min-width: 901px) and (max-width: 1600px) { /*media-query*/
-    .carro {
-        width: 80%;
+@media (min-width: 769px) and (max-width: 1300px) { /*media-query*/
+    .grid {
+        display: block;
     }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 768px) {
     .carro {
         width: 95%;
     }

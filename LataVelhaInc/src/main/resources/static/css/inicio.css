@@ -85,6 +85,25 @@
 	position: relative;
 }
 
+#deletar {
+    width: 100%;
+    border-radius: 0 0 10px 10px;
+    font-weight: bold;
+    margin: auto;
+    padding: 8px;
+    background-color: transparent;
+    border: 2px solid #e74c3c;
+    color: #e74c3c;
+    cursor: pointer;
+    -webkit-transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+    transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+}
+
+#deletar:hover {
+    box-shadow: 0 0 40px 40px #e74c3c inset;
+    color: #e6e6e6;
+}
+
 /*DESIGN RESPONSIVO DA PAGINA INICIAL*/
 @media (min-width: 1301px) {
     .box {
@@ -121,23 +140,4 @@
 	#carros {
 		width: 95%;
 	}
-}
-
-#deletar {
-    width: 100%;
-    border-radius: 0 0 10px 10px;
-    font-weight: bold;
-    margin: auto;
-    padding: 8px;
-    background-color: transparent;
-    border: 2px solid #e74c3c;
-    color: #e74c3c;
-    cursor: pointer;
-    -webkit-transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
-    transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
-}
-
-#deletar:hover {
-    box-shadow: 0 0 40px 40px #e74c3c inset;
-    color: #e6e6e6;
 }

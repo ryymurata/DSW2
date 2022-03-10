@@ -105,6 +105,27 @@
 	color: whitesmoke;
 }
 
+.botaoLogin {
+	font-weight: bolder;
+}
+
+.botaoLogout {
+	background: transparent;
+	color: #b6b6b6;
+	margin: 0;
+	padding: 10px;
+	border: none;
+	font-size: 1em;
+	font-weight: bolder;
+	text-align: center;
+	width: inherit;
+	cursor: pointer;
+}
+
+.botaoLogout:hover {
+	color: whitesmoke;
+}
+
 @media (max-width: 1300px) {
 	.topbar {
 		width: 100%;
