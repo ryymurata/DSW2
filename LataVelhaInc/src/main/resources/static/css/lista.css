@@ -21,13 +21,13 @@
 }
 
 .table thead tr, .table tbody tr {
-    display: flex;
+    display: flex; /*flexbox*/
     padding: 20px;
     border: 1px solid grey;
 }
 
 .table thead tr th, .table tbody tr td {
-    display: flex;
+    display: flex;/*flexbox*/
     justify-content: space-around;
     flex: 1;
     padding: 0%;
@@ -71,7 +71,7 @@ a span {
         border-radius: 0 0 10px 10px;
     }
     
-    .table tbody tr td:before {
+    .table tbody tr td::before { /*pseudo-elemente*/
         display: flex;
         align-items: center;
         padding: .5em;

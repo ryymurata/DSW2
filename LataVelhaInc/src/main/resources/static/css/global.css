@@ -20,7 +20,7 @@ table {
 	text-align: center;
 }
 
-th, td {
+th, td { /*agrupamento de seletores*/
     padding: 8px 15px ;
 }
 
@@ -34,7 +34,7 @@ ul {
 	list-style-type: none;
 }
 
-a:hover {
+a:hover { /*pseudo-classe*/
 	text-decoration:none;
 	color: black;
 }
@@ -70,7 +70,7 @@ a:hover {
 	z-index: 10;
 }
 
-#admin, #corporativo {
+#admin, #corporativo { /*agrupamento de ids*/
 	font-size: 0.8em;
 	color: whitesmoke;
 }
@@ -90,7 +90,7 @@ a:hover {
 	text-align: center;
 }
 
-.linkTopo:hover {
+.linkTopo:hover { /*pseudo-classe*/
 	background-color: rgba(175, 0, 0, 0.349);
 }
 
@@ -147,7 +147,7 @@ a:hover {
 	padding: 21px 16px;
 }
 
-.dropdown li:hover a, .nomeTopoDireita:hover span {
+.dropdown li:hover a, .nomeTopoDireita:hover span { /*agrupamento de seletore*/
 	color: whitesmoke;
 }
 
@@ -191,7 +191,7 @@ a:hover {
 	margin-top: 50px;
 }
 
-.adiciona, td a {
+.adiciona, td a { /*agrupamento de seletores*/
 	color: rgb(255, 0, 0);
 	margin: 30px 0;
 	font-size: 1.3em;
@@ -286,7 +286,7 @@ a:hover {
 	width: fit-content;
 }
 
-@media (max-width: 1300px) {
+@media (max-width: 1300px) { /*media-queries*/
 	.topbar {
 		width: 100%;
 		margin: 0;

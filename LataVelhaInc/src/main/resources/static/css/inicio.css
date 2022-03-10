@@ -1,7 +1,7 @@
 /*CARDS DOS CARROS*/
 #carros {
 	margin: auto;
-	width: 70%;
+	width: 70%; /*medidas-relativas*/
 	margin-top: 100px;
 }
 
@@ -16,7 +16,7 @@
 }
 
 .card {
-	width: 100%;
+	width: 100%; /*medidas-relativa*/
 	background-color:rgb(250, 250, 250);
 	border-radius: 10px;
 	box-shadow: 4px 6px 10px rgba(0, 0, 0, 0.205);
@@ -66,7 +66,7 @@
 }
 
 /*FILTRO DE CARROS*/
-#filtro, #numero, #legendaN {
+#filtro, #numero, #legendaN { /*agrupamento de ids*/
 	background-color:rgba(250, 250, 250, 0.603);
 	border-radius: 2px;
 	border-color: rgba(0, 0, 0, 0);

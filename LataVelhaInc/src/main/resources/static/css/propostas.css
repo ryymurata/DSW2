@@ -1,5 +1,5 @@
 .propostas {
-    display: flex;
+    display: flex; /*flexbox*/
     flex-direction: column;
     margin-right: 40%;
     margin-left: 40%;
@@ -41,7 +41,7 @@
     border-radius: 0 0 10px 10px;
 }
 
-.propostas tbody tr td:before {
+.propostas tbody tr td::before { /*pseudo-elemento*/
     display: flex;
     align-items: center;
     padding: .5em;
@@ -67,7 +67,7 @@
     color: green;
 } 
 
-#aceitar:hover {
+#aceitar:hover { /*pseudo-classe*/
     box-shadow: 0 0 40px 40px green inset;
     color: #e6e6e6;
 }

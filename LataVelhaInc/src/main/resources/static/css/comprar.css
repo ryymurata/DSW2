@@ -2,7 +2,7 @@
     margin: auto;
     margin-top: 100px;
     margin-bottom: 80px;
-    width: 70%;
+    width: 70%; /*medidas relativas*/
     background-color: #fafafa;
     border-radius: 10px;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.205);
@@ -16,7 +16,7 @@
 
 /* Foto Carro*/
 .grid img {
-    width: 100%; 
+    width: 100%; /*medidas-relativas*/
     border-radius: 10px;
 }
 
@@ -55,7 +55,7 @@ input {
     border-color: rgba(255, 255, 255, 0);
 }
 
-#form_proposta {
+#form_proposta { /*id*/
     margin-top: 10px;
     text-align: center;
 }
@@ -86,7 +86,7 @@ input {
     width: -webkit-fill-available;
 }
 
-#form_proposta > input:hover {
+#form_proposta > input:hover { /*pseudo-classe*/
     box-shadow: 0 0 40px 40px #e74c3c inset;
     color: #e6e6e6;
 }
@@ -110,7 +110,7 @@ input {
     font-weight: bold;
 }
 
-@media (min-width: 901px) and (max-width: 1600px) {
+@media (min-width: 901px) and (max-width: 1600px) { /*media-query*/
     .carro {
         width: 80%;
     }
