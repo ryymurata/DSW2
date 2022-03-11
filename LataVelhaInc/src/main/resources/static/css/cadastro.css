@@ -3,7 +3,7 @@
     font-size: 1.5em;
 }
 
-#cadastro { /*utilização de id*/
+#cadastro { /*utilizaï¿½ï¿½o de id*/
     width: fit-content;
     margin: auto;
     margin-top: 180px;
@@ -50,26 +50,6 @@
 
 #salvar:hover { /*pseudo-classe*/
     box-shadow: 0 0 40px 40px green inset;
-    color: #e6e6e6;
-}
-
-#deletar {
-    width: 20vh;
-    border-radius: 16px;
-    font-weight: bold;
-    font-size: 0.8em;
-    margin: auto;
-    padding: 4px;
-    background-color: transparent;
-    border: 2px solid #e74c3c;
-    color: #e74c3c;
-    cursor: pointer;
-    -webkit-transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
-    transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
-}
-
-#deletar:hover { /*pseudo-classe*/
-    box-shadow: 0 0 40px 40px #e74c3c inset;
     color: #e6e6e6;
 }
 
