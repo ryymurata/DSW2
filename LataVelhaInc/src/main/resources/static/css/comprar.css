@@ -115,10 +115,7 @@ input {
     .grid {
         display: block;
     }
-	.descricao{
-		text-align:left;
-	}
-
+}
 @media (max-width: 768px) {
     .carro {
         width: 95%;
