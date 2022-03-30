@@ -1,0 +1,111 @@
+.propostas {
+    display: flex; /*flexbox*/
+    flex-direction: column;
+    margin-right: 40%;
+    margin-left: 40%;
+}
+
+.propostas thead {
+    display: none;
+}
+
+.propostas tbody tr {
+    flex-direction: column;
+    margin: 1em;
+}
+
+.propostas thead tr, .propostas tbody tr {
+    display: flex;
+}
+
+.propostas thead tr th, .propostas tbody tr td {
+    /* display: flex; */
+    flex: 1;
+    padding: 0%;
+}
+
+.propostas tbody tr td {
+    flex-direction: column;
+    background-color: rgb(250, 250, 250);
+    box-shadow: 4px 6px 10px rgba(0, 0, 0, 0.205);
+    border: 1px solid rgb(214, 214, 214);
+}
+
+.propostas tbody tr td:first-child {
+    border-top: 1px solid #ccc;
+    border-radius: 10px 10px 0 0;
+}
+
+.propostas tbody tr td:last-child {
+    border-top: 1px solid #ccc;
+    border-radius: 0 0 10px 10px;
+}
+
+.propostas tbody tr td::before { /*pseudo-elemento*/
+    display: flex;
+    align-items: center;
+    padding: .5em;
+    content: attr(data-label);
+}
+
+#aceitar, #negar {
+    width: 100px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 0.8em;
+    display: inline-block;
+    margin-inline: 10px;
+    padding: 12px;
+    background-color: transparent;
+    cursor: pointer;
+    -webkit-transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+    transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+}
+
+#aceitar {
+    border: 2px solid green;
+    color: green;
+} 
+
+#aceitar:hover { /*pseudo-classe*/
+    box-shadow: 0 0 40px 40px green inset;
+    color: #e6e6e6;
+}
+
+#negar {
+    border: 2px solid red;
+    color: red;
+}
+
+#negar:hover {
+    box-shadow: 0 0 40px 40px red inset;
+    color: #e6e6e6;
+}
+
+#mensagem {
+    width: 60%;
+}
+
+/* Large desktop */
+@media (min-width: 980px) {
+    .propostas {
+        margin-right: 20%;
+        margin-left: 20%;
+    }
+}
+
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 979px) {
+    .propostas {
+        margin-right: 5%;
+        margin-left: 5%;
+    }
+}
+
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) {
+    .propostas {
+        margin-right: 0%;
+        margin-left: 0%;
+    }
+}

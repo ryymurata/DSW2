@@ -1,0 +1,164 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+	margin: 0;
+	background-color: rgb(230, 230, 230);
+	font-size: 16px;
+	line-height: normal;
+}
+
+table {
+	margin: 2em auto;
+	text-align: center;
+}
+
+th, td { /*agrupamento de seletores*/
+    padding: 8px 15px ;
+}
+
+a {
+	display: block;
+	color: rgb(182, 182, 182);
+	text-decoration: none;
+}
+
+ul {
+	list-style-type: none;
+}
+
+a:hover { /*pseudo-classe*/
+	text-decoration:none;
+	color: black;
+}
+
+/*CRUD DE ADMIN*/
+#crudLinks {
+	background-color: rgb(43, 43, 43);
+	margin: auto;
+	color: bisque;
+	border: 2px solid rgb(32, 32, 32);
+	border-radius: 20px;
+	text-align: center;
+	width: fit-content;
+	height: fit-content;
+	margin-top: 200px;
+	padding: 20px;
+}
+
+.crud {
+	padding: 80px;
+	font-size: 3em;
+}
+
+.crud a:hover  {
+	color: whitesmoke;
+}
+
+.label {
+	text-align: center;
+	margin-top: 70px;
+}
+
+.adiciona, td a { /*agrupamento de seletores*/
+	color: rgb(255, 0, 0);
+	margin: 30px 0;
+	font-size: 1.3em;
+	text-align: center;
+}
+
+/*PARTE DA PAGINA DE LOGIN*/
+.boxLogin {
+	display:flex;
+	background: #c2c0c0;
+	justify-content: center;
+	align-items: center;
+	width: 400px;
+	height: 450px;
+    position: relative;
+    margin: 150px auto 0 auto;
+    padding: 12px;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+.camposLogin {
+	width:300px;
+	display: block;
+	border: 1px solid black;
+	border-radius: 5px;
+	padding: 10px 6px;	
+	margin-bottom: 40px;
+}
+
+.botaoLogar {
+	width:300px;
+	border: 2px solid black;
+	border-radius: 30px;
+	background: black;
+	color: white;
+	cursor: pointer;
+	padding: 15px 0;
+	font-size: 18px;
+	font-weight: bolder;
+	transition: 0.5s all;
+}
+
+.botaoLogar:hover {
+	background: red;
+}
+
+/* PARTE DA PAGINA DE ERROS*/
+#erro {
+	justify-content: center;
+	display: flex;
+	margin-top: 50px;
+}
+
+#erro ul {
+	color: red;
+    list-style-type: none;
+    margin: 50px;
+    background-color: #591c1c;
+    width: fit-content;
+    padding: 10px;
+    border-radius: 6px;
+    font-size: 1.2em;
+}
+
+#voltar {
+	background-color: rgb(43, 43, 43);
+	border-radius: 16px;
+	padding: 10px;
+	width: fit-content;
+}
+
+#fotos {
+	margin: auto;
+	border-radius: 10px;
+	text-align: center;
+	margin-top: 50px;
+	margin-bottom: 50px;
+	padding: 20px;
+}
+
+#fotos a {
+	color: red;
+	text-decoration: underline;
+}
+
+#fotos li {
+	display: inline-grid;
+	margin: 10px;
+}
+
+#fotos ul {
+	display: contents;
+}

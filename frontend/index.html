@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+    xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lata</title>
+    <link rel="stylesheet" href="./css/global.css">
+    <link rel="stylesheet" href="./css/inicio.css">
+</head>
+
+<body onload="catalogo()">
+<!--     <div th:replace="fragments/topbarLinks"></div>
+ -->
+    <section id="carros">
+        <div id="divFiltro">
+            <input type="text" name="Filtro" placeholder="filtrar carros..." id="filtro" onfocus="comecar()" onblur="parar()">
+            <span id="legendaN"></span>
+            <span id="numero">-</span>
+        </div>
+        <div id="catalogo"></div>
+    </section>
+</body>
+<script src="./js/cards.js"></script>
+<script src="./js/filtro.js"></script>
+
+</html>

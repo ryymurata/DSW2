@@ -1,0 +1,131 @@
+.carro {
+    margin: auto;
+    margin-top: 100px;
+    margin-bottom: 80px;
+    width: 70%; /*medidas relativas*/
+    background-color: #fafafa;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.205);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    font-size: 1.2em;
+}
+
+/* Foto Carro*/
+.grid img {
+    width: 100%; /*medidas-relativas*/
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Dados Carro*/
+.grid ul {
+    text-align: center;
+}
+
+/* Nome do carro */
+.grid ul li:first-child {
+    font-size: 1.5em;
+    font-weight: bolder;
+    padding-block: 30px;
+}
+
+/* Preço */
+.grid ul li:last-child {
+    padding-top: 30px;
+    font-size: 1.8em;
+    font-weight: bold;
+    color: red;
+}
+
+.grid ul li {
+    margin-inline: 30px;
+}
+
+.descricao {
+    padding: 120px;
+}
+
+input {
+    margin-top: 20px;
+    padding: 14px;
+    border-radius: 16px;
+    border-color: rgba(255, 255, 255, 0);
+}
+
+#form_proposta { /*id*/
+    margin-top: 10px;
+    text-align: center;
+}
+
+#form_proposta > div {
+    display: inline-grid;
+}
+
+/* Botoes com valores de proposta */
+#form_proposta div input {
+    width: 150px;
+    background-color: #e6e6e6;
+    font-size: .9em;
+    margin-inline: 15px;
+}
+
+/* Botao fazer proposta */
+#form_proposta > input {
+    font-weight: bold;
+    font-size: 1.1em;
+    background-color: transparent;
+    border: 2px solid #e74c3c;
+    color: #e74c3c;
+    cursor: pointer;
+    -webkit-transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+    transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+    margin-inline: 30px;
+    width: -webkit-fill-available;
+}
+
+#form_proposta > input:hover { /*pseudo-classe*/
+    box-shadow: 0 0 40px 40px #e74c3c inset;
+    color: #e6e6e6;
+}
+
+.propostas {
+    background-color: #e6e6e6;
+    border-radius: 16px;
+    box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.226);
+    margin: 30px;
+}
+
+#botao_cancelar {
+    background-color: #2b2b2b;
+    border-bottom-right-radius: 16px;
+    border-top-left-radius: 16px;
+}
+
+.label {
+    margin-top: 50px;
+    padding: 0;
+    font-weight: bold;
+}
+
+@media (min-width: 769px) and (max-width: 1300px) { /*media-query*/
+    .grid {
+        display: block;
+    }
+}
+@media (max-width: 768px) {
+    .carro {
+        width: 95%;
+    }
+
+    .grid {
+        display: block;
+    }
+
+    .descricao {
+        padding: 50px;
+    }
+}
