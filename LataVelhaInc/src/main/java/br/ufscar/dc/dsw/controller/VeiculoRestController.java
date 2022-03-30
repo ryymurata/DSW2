@@ -71,6 +71,15 @@ public class VeiculoRestController {
 		return ResponseEntity.ok(lista);
 	}
 
+	@GetMapping(path = "/veiculos/modelos/")
+	public ResponseEntity<List<Veiculo>> lista() {
+		List<Veiculo> lista = serviceVeiculo.buscarTodos();
+		if (lista == null) {
+			return ResponseEntity.notFound().build();
+		}
+		return ResponseEntity.ok(lista);
+	}
+
 	@GetMapping(path = "/veiculos/modelos/{nome}")
 	public ResponseEntity<List<Veiculo>> lista(@PathVariable("nome") String modelo) {
 		List<Veiculo> lista = serviceVeiculo.buscarTodosPorModelo(modelo);

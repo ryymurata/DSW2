@@ -1,6 +1,5 @@
-<div class="card">
+<!-- <div class="card">
     <div class="container">
-        <!--<img th:src="@{${'/images/' + veiculo.id + '/1.jpg'}}" alt="Carro">-->
         <img th:src="@{http://localhost:8080/images/{id}/{file} (id=${veiculo.id},file='1.jpg')}" alt="Carro">
     </div>
     <ul class="dadosCarro">
@@ -11,4 +10,4 @@
     </ul>
     <a id="deletar" th:href="@{/veiculo/remover/{id} (id=${veiculo.id})}" th:text="#{object.delete}"
         class="btn btn-primary btn-sm" sec:authorize="hasRole('ROLE_LOJA')"></a>
-</div>
+</div> -->

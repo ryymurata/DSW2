@@ -78,6 +78,7 @@
 #numero, #legendaN {
 	float: right;
 	color: #757575;
+	display: none;
 }
 
 #divFiltro {
