@@ -10,11 +10,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Gugi&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/topbar.css">
     <link rel="stylesheet" href="./css/global.css">
-    <link rel="stylesheet" href="./css/inicio.css">
 </head>
-
-<body onload="catalogo()">
-
+<body>
     <div class="topbar-support">
         <div class="topbar">
             <ul id="links">
@@ -35,17 +32,13 @@
             </ul>
         </div>
     </div>
-    
-    <section id="carros">
-        <div id="divFiltro">
-            <input type="text" name="Filtro" placeholder="filtrar carros..." id="filtro" onfocus="comecar()" onblur="parar()">
-            <span id="legendaN"></span>
-            <span id="numero">-</span>
+
+    <section id="crudLinks">
+        <div class="crud">
+            <a href="./clientes.html">Clientes</a>
         </div>
-        <div id="catalogo"></div>
+        <div class="crud">
+            <a href="./lojas.html">Lojas</a>
+        </div>
     </section>
 </body>
-<script src="./js/cards.js"></script>
-<script src="./js/filtro.js"></script>
-
-</html>
