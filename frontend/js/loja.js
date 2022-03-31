@@ -33,15 +33,30 @@ function lista(){
     xhr.send();
 }
 
+function apagar(id){
+	let xhr = new XMLHttpRequest();
+    xhr.open('DELETE', API + '/' + id, true);
+    xhr.onload = function() {
+        if (this.readyState == 4 && this.status == 204) {
+            alert('Loja removida!');
+			document.location.reload(true);
+        }
+		else{
+			alert('Ocorreu algum problema');
+		}
+    }
+    xhr.send();
+}
+
 function criar(){
 	let nova_loja = new Object();
 	nova_loja.username  = document.getElementById("username").value;
     nova_loja.password = document.getElementById("password").value;
     nova_loja.role = document.getElementById("role").value;
-    novo_loja.enabled = true;
-    novo_loja.nome = document.getElementById("nome").value;
-    novo_loja.descricao = document.getElementById("descricao").value;
-    novo_loja.cnpj = document.getElementById("CNPJ").value;
+    nova_loja.enabled = true;
+    nova_loja.nome = document.getElementById("nome").value;
+    nova_loja.descricao = document.getElementById("descricao").value;
+    nova_loja.cnpj = document.getElementById("CNPJ").value;
 
 	const json = JSON.stringify(nova_loja);
 
