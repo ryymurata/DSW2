@@ -4,9 +4,34 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Lojas</title>
+    <link rel="stylesheet" href="./css/global.css">
+    <link rel="stylesheet" href="./css/lista.css">
 </head>
-<body>
-    
+<body onload="lista()">
+
+	<h1 class="label"></h1>
+
+	<div class="list-container">
+		<h2></h2>
+		<a class="adiciona" onclick="adicionar()"></a>
+
+		<table class="table">
+			<thead class="thead-dark">
+				<tr>
+					<th>id</th>
+					<th>nome</th>
+					<th>email</th>
+					<th>cnpj</th>
+					<th>descriçao</th>
+					<th>açao</th>
+				</tr>
+			</thead>
+
+			<tbody id="dados-tabela"></tbody>
+		</table>
+
+	</div>
 </body>
+<script src="./js/loja.js"></script>
 </html>
