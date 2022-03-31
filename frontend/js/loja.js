@@ -15,13 +15,8 @@ const linha = (loja) => {
 				<td data-label="CNPJ">${loja.CNPJ}</td>
 				<td data-label="Telefone">${loja.descricao}</td>
 				<td data-label="Ações" colspan="2">
-					<a th:href="@{/loja/editar/{id} (id=${loja.id})}" role="button">
-						<span th:title="#{object.update}">&#x1F58C;</span>
-					</a>
-								
-					<a th:href="@{/loja/remover/{id} (id=${loja.id})}" role="button">
-						<span th:title="#{object.delete}">&#x1F5D1;</span>
-					</a>
+					<button onclick="editar(${loja.id})"><span>&#x1F58C;</span></button>
+					<button onclick="apagar(${loja.id})"><span>&#x1F5D1;</span></button>
 				</td>
 		</tr>`
 }
@@ -34,6 +29,42 @@ function lista(){
             var lojas = JSON.parse(this.responseText);
             linhas(lojas);
         }
+    }
+    xhr.send();
+}
+
+function criar(){
+	let nova_loja = new Object();
+	nova_loja.username  = document.getElementById("username").value;
+    nova_loja.password = document.getElementById("password").value;
+    nova_loja.role = document.getElementById("role").value;
+    novo_loja.enabled = true;
+    novo_loja.nome = document.getElementById("nome").value;
+    novo_loja.descricao = document.getElementById("descricao").value;
+    novo_loja.cnpj = document.getElementById("CNPJ").value;
+
+	const json = JSON.stringify(nova_loja);
+
+	let xhr = new XMLHttpRequest();
+    xhr.open('POST', API, true);
+    xhr.setRequestHeader("Content-type","application/json");
+    xhr.onload = function () {
+        if (this.status == 200) {
+            alert('Loja criada!');
+        }
+		else{
+			alert('Ocorreu algum problema');
+		} 
+    }
+    xhr.send(json);
+	document.location.href = './lojas.html';
+}
+
+function editar(id){
+	let xhr = new XMLHttpRequest();
+    xhr.open('PUT', API + '/' + id, true);
+    xhr.onload = function() {
+        
     }
     xhr.send();
 }

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar Cliente</title>
+    <link rel="stylesheet" href="./css/global.css">
+    <link rel="stylesheet" href="./css/cadastro.css">
+</head>
+
+<body>
+    <section class="layout-content">
+        <div class="container" id="cadastro">
+            <h3>Criando novo cliente</h3>
+            <form method="POST">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Nome</label>
+                        <input type="text" id="nome" />
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="text" id="username" />
+                    </div>
+                    <div class="form-group">
+                        <label>Senha</label>
+                        <input type="text" id="password"/>
+                    </div>
+                    <div class="form-group">
+                        <label>CNPJ</label>
+                        <input type="text" id="CNPJ" placeholder="__.___.___/____-__" />
+                    </div>
+                    <div class="form-group">
+                        <label>Descriçao</label>
+                        <input type="text" id="descricao" />
+                    </div>
+
+                    <div class="form-group">
+                        <label>Função</label>
+                        <input type="text" id="role" value="ROLE_USER" readonly />
+                    </div>
+                </div>
+                <div class="divSalvar">
+                    <button id="salvar" type="submit" onclick="criar()">Criar</button>
+                </div>
+                <div>
+                    <a href="./lojas.html">Voltar</a>
+                </div>
+            </form>
+        </div>
+    </section>
+</body>
+<script src="./js/loja.js"></script>
+</html>
