@@ -5,27 +5,10 @@
 
 <head th:replace="fragments/header"></head>
 
-<body onload="catalogo()">
+<body>
     <div th:replace="fragments/topbarLinks"></div>
-    <!-- O q aparece se vc for admin -->
-    <section id="crudLinks" sec:authorize="hasRole('ROLE_ADMIN')">
-        <div class="crud">
-            <a th:href="@{/cliente/listar}" th:text="#{customer.crudname}"></a>
-        </div>
-        <div class="crud">
-            <a th:href="@{/loja/listar}" th:text="#{store.crudname}"></a>
-        </div>
-    </section>
-    <!-- O q aparece se vc for loja/cliente/nLogado -->
-    <section id="carros" sec:authorize="!hasRole('ROLE_ADMIN')">
-        <div id="divFiltro">
-            <input type="text" name="Filtro" th:placeholder="#{filter.label}" id="filtro" onfocus="comecar()" onblur="parar()">
-            <span id="legendaN" th:text=#{filter.count}></span>
-            <span id="numero">-</span>
-        </div>
-        <div id="catalogo"></div>
-    </section>
+    <section th:replace="fragments/crudLinks" sec:authorize="hasRole('ROLE_ADMIN')"></section>
+    <section th:replace="fragments/catalogo" sec:authorize="!hasRole('ROLE_ADMIN')"></section>
 </body>
-<script src="/js/cards.js"></script>
-<script src="/js/filtro.js"></script>
+
 </html>
