@@ -5,35 +5,56 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clientes</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gugi&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/topbar.css">
     <link rel="stylesheet" href="./css/global.css">
     <link rel="stylesheet" href="./css/lista.css">
 </head>
 
 <body onload="lista()">
 
-	<h1 class="label"></h1>
+	<div class="topbar-support">
+        <div class="topbar">
+            <ul id="links">
+                <li class="logo">
+                    <a href="./index.html"><span id="titulo">LataVelhaInc.</span></a>
+                </li>
+                <li class="linkTopoDireita linkTopo">
+                    <a href="./listarPropostasLoja.html">p loja</a>
+                </li>
+    
+                <li class="linkTopoDireita linkTopo">
+                    <a href="./listarPropostasCliente.html">p cliente</a>
+                </li>
+
+                <li class="linkTopoDireita linkTopo">
+                    <a href="./crudLinks.html">admin</a>
+                </li>     
+            </ul>
+        </div>
+    </div>
 
 	<div class="list-container">
-		<h2></h2>
-		<a class="adiciona" onclick="adicionar()"></a>
-
+		<h1>Lista de Clientes</h1>
 		<table class="table">
 			<thead class="thead-dark">
 				<tr>
-					<th>id</th>
-					<th>nome</th>
-					<th>email</th>
-					<th>cpf</th>
-					<th>telefone</th>
-					<th>genero</th>
-					<th>nascimento</th>
-					<th>açao</th>
+					<th>Id</th>
+					<th>Nome</th>
+					<th>Email</th>
+					<th>Cpf</th>
+					<th>Telefone</th>
+					<th>Sexo</th>
+					<th>Nascimento</th>
+					<th>Ação</th>
 				</tr>
 			</thead>
 
 			<tbody id="dados-tabela"></tbody>
 		</table>
-
+		<a class="adiciona" href="./criarCliente.html">Adicionar novo cliente</a>
 	</div>
 </body>
 <script src="./js/cliente.js"></script>
