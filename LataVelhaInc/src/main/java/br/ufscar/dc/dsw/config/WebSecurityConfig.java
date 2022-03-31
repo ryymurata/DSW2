@@ -50,6 +50,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				.antMatchers("/veiculos/lojas/{\\d+}").permitAll()
 				.antMatchers("/veiculos/modelos/{\\w+}").permitAll()
 				.antMatchers("/veiculos/modelos/").permitAll()
+				.antMatchers("/veiculos/{\\d+}").permitAll()
 				//
 				.antMatchers("/", "/index", "/error").permitAll()
 				.antMatchers("/login/**", "/js/**", "/css/**", "/images/**", "/webjars/**").permitAll()

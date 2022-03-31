@@ -52,7 +52,7 @@ public class Veiculo extends AbstractEntity<Long>{
 	@Column(nullable = false, columnDefinition = "DECIMAL(10,2) DEFAULT 0.0")
     private BigDecimal preco;
     
-    @JsonBackReference
+    //@JsonBackReference
     @NotNull(message = "{javax.validation.constraints.NotNull.message}")
 	@ManyToOne
 	@JoinColumn(name = "id_loja")
