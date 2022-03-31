@@ -8,8 +8,25 @@ function linhas(clientes){
 }
 
 const linha = (cliente) => {
-    return `aqui vai a div q tava dentro de tbody q equivale a cada cliente
-            (acho q so precisa mexer nisso)`
+	return `<tr>
+				<td data-label="Id" >${cliente.id}</td>
+				<td data-label="Nome" >${cliente.nome}</td>
+				<td data-label="Email">${cliente.username}</td>
+				<td data-label="CPF">${cliente.CPF}</td>
+				<td data-label="Telefone">${cliente.telefone}</td>
+				<td data-label="Sexo">${cliente.sexo}</td>
+				<td data-label="Nascimento">${cliente.nascimento}</td>
+				<td data-label="Ações" colspan="2">
+					<a class="actions" th:href="@{/cliente/editar/{id} (id=${cliente.id})}" role="button">
+							<span th:title="#{object.update}" aria-hidden="true">&#x1F58C;</span>
+					</a>
+	
+					<a class="actions" th:href="@{/cliente/remover/{id} (id=${cliente.id})}" role="button">
+							<span th:title="#{object.delete}">&#x1F5D1;</span>
+					</a>
+
+				</td>
+		</tr>`
 }
 
 function lista(){
