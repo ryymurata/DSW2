@@ -5,12 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lojas</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Gugi&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/topbar.css">
     <link rel="stylesheet" href="./css/global.css">
     <link rel="stylesheet" href="./css/lista.css">
+    <link rel="stylesheet" href="./css/cadastro.css">
 </head>
 <body onload="lista()">
 	<div class="topbar-support">
@@ -18,13 +19,6 @@
             <ul id="links">
                 <li class="logo">
                     <a href="./index.html"><span id="titulo">LataVelhaInc.</span></a>
-                </li>
-                <li class="linkTopoDireita linkTopo">
-                    <a href="./listarPropostasLoja.html">p loja</a>
-                </li>
-
-                <li class="linkTopoDireita linkTopo">
-                    <a href="./listarPropostasCliente.html">p cliente</a>
                 </li>
 
                 <li class="linkTopoDireita linkTopo">
@@ -34,9 +28,52 @@
         </div>
     </div>
 
+	
 	<div class="list-container">
-		<h1>Lista de Clientes</h1>
+		<h1>Lista de Lojas</h1>
+		
+        <button class="adiciona" onclick="gerar_criacao()">Adicionar nova Loja</button>
+        
+        <div class="container" id="cadastro" style="display: none;">
+            <h3 id="editando"></h3>
+            <form method="POST">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Nome</label>
+                        <input type="text" id="nome" />
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="text" id="username" />
+                    </div>
+                    <div class="form-group">
+                        <label>Senha</label>
+                        <input type="text" id="password"/>
+                    </div>
+                    <div class="form-group">
+                        <label>CNPJ</label>
+                        <input type="text" id="CNPJ" placeholder="__.___.___/____-__" />
+                    </div>
+                    <div class="form-group">
+                        <label>Descriçao</label>
+                        <input type="text" id="descricao" />
+                    </div>
 
+                    <div class="form-group">
+                        <label>Função</label>
+                        <input type="text" id="role" value="ROLE_USER" readonly />
+                    </div>
+                    <input type="text" name="id" id="indice" hidden />
+                </div>
+            </form>
+            <div class="divSalvar">
+                <button id="salvar" onclick="processar()">Salvar</button>
+            </div>
+            <div>
+                <a href="./lojas.html">Fechar</a>
+            </div>
+        </div>
+        
 		<table class="table">
 			<thead class="thead-dark">
 				<tr>
@@ -51,7 +88,6 @@
 
 			<tbody id="dados-tabela"></tbody>
 		</table>
-		<a class="adiciona" href="./criarLoja.html">Adicionar nova Loja</a>
 	</div>
 </body>
 <script src="./js/loja.js"></script>
