@@ -2,7 +2,7 @@ const API = "http://localhost:8080/clientes"
 
 function linhas(clientes){
     var catalogo = document.getElementById("dados-tabela");
-    console.log(clientes);
+    //console.log(clientes);
     var lista_carros = clientes.map(cliente => linha(cliente)).join('');
     catalogo.innerHTML = lista_carros;
 }
@@ -53,13 +53,13 @@ function apagar(id){
 function gerar_criacao(){
     document.getElementById("username").value = '';
     document.getElementById("password").value = '';
-    document.getElementById("role").value = '';
     document.getElementById("nome").value = '';
     document.getElementById("telefone").value = '';
     document.getElementById("sexo").value = '';
     document.getElementById("nascimento").value = '';
     document.getElementById("CPF").value = '';
     document.getElementById("indice").value = '';
+
     document.getElementById("cadastro").style = 'display:block;';
     document.getElementById("editando").innerHTML = 'Criando novo cliente';
 }
@@ -74,7 +74,7 @@ function tabela(cliente){
     document.getElementById("nascimento").value = cliente.nascimento;
     document.getElementById("CPF").value = cliente.cpf;
     document.getElementById("indice").value = cliente.id;
-    //console.log(cliente);
+
     document.getElementById("cadastro").style = 'display:block;';
     document.getElementById("editando").innerHTML = 'Editando ' + cliente.nome;
 }
@@ -85,7 +85,6 @@ function gerar_edicao(id){
     xhr.onload = function() {
         if (this.readyState == 4 && this.status == 200) {
             var cliente = JSON.parse(this.responseText);
-            //console.log(cliente);
             tabela(cliente);
         }
     }
@@ -108,7 +107,7 @@ function processar(){
 
 	let xhr = new XMLHttpRequest();
     let id = document.getElementById("indice").value;
-    //console.log(id);
+
     if (id != ''){
         xhr.open('PUT', API + '/' + id, true);
     }else{
@@ -116,8 +115,8 @@ function processar(){
     }
     
     xhr.setRequestHeader("Content-type","application/json");
-    xhr.onreadystatechange = function() {
-        if (xhr.status === 200){
+    xhr.onload = function() {
+        if (this.readyState == 4 && this.status == 200) {
             alert('Deu certo!');
             document.location.reload(true);
         }
