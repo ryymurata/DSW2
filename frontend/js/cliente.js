@@ -1,10 +1,10 @@
 const API = "http://localhost:8080/clientes"
 
 function linhas(clientes){
-    var catalogo = document.getElementById("dados-tabela");
+    var tabela_clientes = document.getElementById("tabela-clientes");
     //console.log(clientes);
-    var lista_carros = clientes.map(cliente => linha(cliente)).join('');
-    catalogo.innerHTML = lista_carros;
+    var lista_clientes = clientes.map(cliente => linha(cliente)).join('');
+    tabela_clientes.innerHTML = lista_clientes;
 }
 
 const linha = (cliente) => {

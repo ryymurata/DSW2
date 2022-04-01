@@ -1,10 +1,10 @@
 const API = "http://localhost:8080/lojas"
 
 function linhas(lojas){
-    var catalogo = document.getElementById("dados-tabela");
+    var tabela_lojas = document.getElementById("tabela-lojas");
     console.log(lojas);
-    var lista_carros = lojas.map(loja => linha(loja)).join('');
-    catalogo.innerHTML = lista_carros;
+    var lista_lojas = lojas.map(loja => linha(loja)).join('');
+    tabela_lojas.innerHTML = lista_lojas;
 }
 
 const linha = (loja) => {
