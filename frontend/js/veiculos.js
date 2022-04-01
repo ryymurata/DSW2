@@ -1,4 +1,5 @@
 const API = "http://localhost:8080/veiculos"
+const API_PROPOSTAS = "http://localhost:8080/propostas/veiculos"
 
 function cards(veiculos){
     var catalogo = document.getElementById("catalogo");
@@ -59,7 +60,9 @@ function info_carro(veiculo){
                     <div>
                         <input type="number" name="parcelamento" placeholder="Parcelas">
                     </div>
+                    <input type="text" name="id" id="indice" value="${veiculo.id}" hidden />
                     <input type="submit" name="Proposta">
+                    
 			    </form>
             </div>
         </div>
@@ -67,7 +70,26 @@ function info_carro(veiculo){
             <strong>Sobre</strong>
             <p>${veiculo.descricao}</p>
         </div>
-        <button onclick="voltar()">Voltar</button>`;
+        <button class="adiciona lista-propostas-btn" onclick="listar_propostas()"}>Listar Propostas do Veículo</button>
+        
+        <section id="lista-propostas" style="display: none;">
+        <table class="propostas">
+			<thead class="thead-dark">
+				<tr>
+					<th>Id</th>
+					<th>Data</th>
+					<th>Estado</th>
+					<th>Parcelamento</th>
+					<th>Valor</th>
+				</tr>
+			</thead>
+
+			<tbody id="tabela-propostas"></tbody>
+		</table>
+    </section>
+    <button onclick="voltar()">Voltar</button>`;
+        
+        
     var catalogo = document.getElementById("carros");
     catalogo.style = 'display:none;'
 }
@@ -87,4 +109,38 @@ function comprar(id){
 function voltar(){
     document.getElementById("carro").style = 'display:none;';
     document.getElementById("carros").style = 'display:block;';
+    document.getElementById("lista-propostas").style = 'display:none';
+}
+
+
+function linhas(propostas){
+    var tabela_propostas = document.getElementById("tabela-propostas");
+    //console.log(clientes);
+    var lista_propostas = propostas.map(proposta => linha(proposta)).join('');
+    tabela_propostas.innerHTML = lista_propostas;
+}
+
+const linha = (proposta) => {
+	return `<tr>
+				<td data-label="Id" >${proposta.id}</td>
+				<td data-label="Data" >${proposta.data}</td>
+				<td data-label="Estado">${proposta.estado}</td>
+				<td data-label="Parcelamento">${proposta.parcelamento}</td>
+				<td data-label="Valor">${proposta.valor}</td>
+			</tr>`
+}
+
+function listar_propostas(){
+    document.getElementById("lista-propostas").style = 'display:block;';
+    var veiculo_id = document.getElementById("indice").value
+    console.log(veiculo_id)
+    let xhr = new XMLHttpRequest();
+    xhr.open('GET', API_PROPOSTAS + '/' + veiculo_id, true);
+    xhr.onload = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            var propostas = JSON.parse(this.responseText);
+            linhas(propostas);
+        }
+    }
+    xhr.send();
 }

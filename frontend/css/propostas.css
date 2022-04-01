@@ -48,6 +48,21 @@
     content: attr(data-label);
 }
 
+.lista-propostas-btn {
+    display:block;
+    font-weight: bold;
+    margin: auto; 
+    color: black; 
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.lista-propostas-btn:hover {
+    box-shadow: 0 0 40px 40px #e74c3c inset;
+    color: #e6e6e6;
+    transition: 0.3s;
+}
+
 #aceitar, #negar {
     width: 100px;
     border-radius: 4px;
