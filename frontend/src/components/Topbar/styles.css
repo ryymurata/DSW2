@@ -1,6 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Gugi&display=swap');
+
 #titulo {
 	font-size: 1.6em;
-	font-family: 'Gugi', cursive, Arial, sans-serif;
+    font-family: 'Gugi', cursive;
 	color: red;
 }
 

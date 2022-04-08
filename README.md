@@ -9,10 +9,9 @@ Documento de requisitos:
 [Requisitos](Requisitos.pdf)
 
 ## Para executar ##
-1) Acesse a pasta ***backend*** 
-2) Siga o README dentro dela
-3) Com o servidor rodando abra o arquivo index.html dentro de **frontend**
+1) Acesse a pasta ***backend*** e siga o README dentro dela
+2) Com o servidor rodando entre na pasta **frontend** e execute ```npm start```
 
 > Backend: Spring
 
->  Frontend: Javascript
+>  Frontend: React
