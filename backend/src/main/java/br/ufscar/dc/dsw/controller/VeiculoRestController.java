@@ -80,7 +80,7 @@ public class VeiculoRestController {
 		return ResponseEntity.ok(veiculo);
 	}
 
-	@GetMapping(path = "/veiculos/modelos/")
+	@GetMapping(path = "/veiculos")
 	public ResponseEntity<List<Veiculo>> lista() {
 		List<Veiculo> lista = serviceVeiculo.buscarTodos();
 		if (lista == null) {
