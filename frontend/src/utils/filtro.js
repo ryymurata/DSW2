@@ -4,7 +4,7 @@ function filtro() {
     var cards = document.querySelectorAll('.box');
     let cont = 0;
     for (let i = 0; i < cards.length; i++) {
-        if (filtrar.value == '') {
+        if (filtrar.value === '') {
             cards[i].style = 'display: block;';
             cont = cards.length;
         }
@@ -24,13 +24,13 @@ function filtro() {
 
 var timer
 
-function comecar(){
+export function comecar(){
     document.getElementById('numero').style = 'display:block;';
     document.getElementById('legendaN').style = 'display:block;';
     timer = setInterval(filtro,100);
 }
 
-function parar(){
+export function parar(){
     document.getElementById('numero').style = 'display:none;';
     document.getElementById('legendaN').style = 'display:none;';
     clearInterval(timer);
