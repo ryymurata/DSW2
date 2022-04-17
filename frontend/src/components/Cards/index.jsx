@@ -1,4 +1,5 @@
 //import imageSrc from '@assets/img/1/1.jpg';
+import './styles.css';
 
 function Cards(props) {
 
@@ -6,9 +7,13 @@ function Cards(props) {
     const img = '/img/' + veiculo.id + '/1.jpg';
     //console.log(imageSrc)
 
+    function comprar(id) {
+        console.log('oba');
+    }
+
     return (
         <section className="box">
-            <div className="card">
+            <div className="card" onClick={() => comprar(veiculo.id)}>
                 <div className="container">
                     <img src={img} alt="Carro" />
                 </div>

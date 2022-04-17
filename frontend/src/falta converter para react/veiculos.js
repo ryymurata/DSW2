@@ -1,41 +1,6 @@
 const API = "http://localhost:8080/veiculos"
 const API_PROPOSTAS = "http://localhost:8080/propostas/veiculos"
 
-function cards(veiculos){
-    var catalogo = document.getElementById("catalogo");
-    console.log(veiculos);
-    var lista_carros = veiculos.map(veiculo => card(veiculo)).join('');
-    catalogo.innerHTML = lista_carros;
-}
-
-const card = (veiculo) => {
-    return `<section class="box">
-                <div class="card" onclick="comprar(${veiculo.id})">
-                    <div class="container">
-                        <img src=./images/${veiculo.id}/1.jpg alt="Carro">
-                    </div>
-                    <ul class="dadosCarro">
-                        <li class="modelo">${veiculo.modelo}</li>
-                        <li>${veiculo.loja.nome}</li>
-                        <li>${veiculo.quilometragem + 'km'}</li>
-                        <li class="oferta">${'R$' + veiculo.preco}</li>
-                    </ul>
-                </div>
-            </section>`;
-}
-
-function catalogo(){
-    let xhr = new XMLHttpRequest();
-    xhr.open('GET', API + '/modelos/', true);
-    xhr.onload = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            var veiculos = JSON.parse(this.responseText);
-            cards(veiculos);
-        }
-    }
-    xhr.send();
-}
-
 function info_carro(veiculo){
     var compra = document.getElementById("carro");
     console.log(veiculo);

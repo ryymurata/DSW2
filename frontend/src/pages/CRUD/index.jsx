@@ -1,13 +1,14 @@
+import { Link } from 'react-router-dom';
 import './styles.css';
 
 function Crud() {
     return (
         <section id="crudLinks">
             <div className="crud">
-                <a href="./clientes.html">Listar Clientes</a>
+                <Link to="./clientes">Listar Clientes</Link>
             </div>
             <div className="crud">
-                <a href="./lojas.html">Listar Lojas</a>
+                <Link to="./lojas">Listar Lojas</Link>
             </div>
         </section>
     );

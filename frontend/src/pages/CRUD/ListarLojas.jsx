@@ -1,6 +1,6 @@
 import './styles.css';
 
-function Loja() {
+function ListarLojas(props) {
     return (
         <div class="list-container">
             <h1>Lista de Lojas</h1>
@@ -65,4 +65,4 @@ function Loja() {
     );
 }
 
-export default Loja;
+export default ListarLojas;

@@ -37,10 +37,8 @@ function Inicio() {
             </div>
             {/* lista os carros só depois deles terem sido totalmente recebidos */}
             {carregado && listaCarros.map(carro =>
-                <div key={carro.id}>
-                    {/* invoca componente filho para cada carro salvo passando como props o carro em questão */}
-                    <Cards carro={carro} />
-                </div>
+                /* invoca componente filho para cada carro salvo passando como props o carro em questão */
+                <Cards key={carro.id} carro={carro} />
             )}
         </section>
     );
