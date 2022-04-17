@@ -10,7 +10,7 @@ Documento de requisitos:
 
 ## Para executar ##
 1) Acesse a pasta ***backend*** e siga o README dentro dela
-2) Com o servidor rodando entre na pasta **frontend** e execute ```npm start```
+2) Com o servidor rodando entre na pasta ***frontend*** e execute ```npm install && npm start```
 
 > Backend: Spring
 
