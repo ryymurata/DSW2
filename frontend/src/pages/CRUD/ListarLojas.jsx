@@ -1,54 +1,122 @@
+import Loja from '@components/Loja'
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 import './styles.css';
 
 function ListarLojas(props) {
+    const API = 'http://localhost:8080/lojas';
+    const [lojas, setLojas] = useState('');
+    const [carregado, setCarregado] = useState(false);
+
+    /* hook de efeito colateral, executará sempre que houver mudança nos dados */
+    useEffect(() => {
+        setCarregado(false);
+        /* utilizando biblioteca externa axios para requisições */
+        axios
+            .get(API)
+            .then(response => {
+                /* converte a resposta recebida com .data */
+                const data = response.data;
+                /* se a resposta estiver ok, realiza set */
+                if (data !== 'undefined') {
+                    console.log(data);
+                    setLojas(data);
+                    setLojas(true);
+                }
+            });
+    }, []);/* esse colchete fica vazio pq effect não depende de nenhum valor para fazer requisição */
+
+    function gerar_criacao() {
+        let editaveis = document.getElementsByClassName('editavel');
+        for (let i = 0; i < editaveis.length; i++)
+            editaveis[i].value = '';
+
+        document.getElementById("cadastro").style = 'display:block;';
+        document.getElementById("editando").innerHTML = 'Criando nova Loja';
+    }
+
+    function processar() {
+        let info_loja = {};
+        info_loja.username = document.getElementById("username").value;
+        info_loja.password = document.getElementById("password").value;
+        info_loja.role = document.getElementById("role").value;
+        info_loja.enabled = true;
+        info_loja.nome = document.getElementById("nome").value;
+        info_loja.cnpj = document.getElementById("CNPJ").value;
+        info_loja.descricao = document.getElementById("descricao").value;
+
+        const json = JSON.stringify(info_loja);
+
+        let xhr = new XMLHttpRequest();
+        let id = document.getElementById("indice").value;
+
+        if (id !== '') {
+            xhr.open('PUT', API + '/' + id, true);
+        } else {
+            xhr.open('POST', API, true);
+        }
+
+        xhr.setRequestHeader("Content-type", "application/json");
+        xhr.onload = function () {
+            if (this.readyState === 4 && this.status === 200) {
+                alert('Deu certo!');
+                document.location.reload(true);
+            }
+            else {
+                alert('Ocorreu algum problema');
+            }
+        }
+        xhr.send(json);
+    }
+
     return (
-        <div class="list-container">
+        <div className="list-container">
             <h1>Lista de Lojas</h1>
 
-            <button class="adiciona" onclick="gerar_criacao()">Adicionar nova Loja</button>
+            <button className="adiciona" onClick={() => gerar_criacao()}>Adicionar nova Loja</button>
 
-            <div class="container" id="cadastro" style="display: none;">
+            <div className="container" id="cadastro" style={{ display: 'none', }}>
                 <h3 id="editando"></h3>
                 <form method="POST">
-                    <div class="form-row">
-                        <div class="form-group">
+                    <div className="form-row">
+                        <div className="form-group">
                             <label>Nome</label>
-                            <input type="text" id="nome" />
+                            <input type="text" id="nome" className='editavel' />
                         </div>
-                        <div class="form-group">
+                        <div className="form-group">
                             <label>Email</label>
-                            <input type="text" id="username" />
+                            <input type="text" id="username" className='editavel' />
                         </div>
-                        <div class="form-group">
+                        <div className="form-group">
                             <label>Senha</label>
-                            <input type="text" id="password" />
+                            <input type="text" id="password" className='editavel'/>
                         </div>
-                        <div class="form-group">
+                        <div className="form-group">
                             <label>CNPJ</label>
-                            <input type="text" id="CNPJ" placeholder="__.___.___/____-__" />
+                            <input type="text" id="CNPJ" className='editavel' placeholder="__.___.___/____-__" />
                         </div>
-                        <div class="form-group">
+                        <div className="form-group">
                             <label>Descriçao</label>
-                            <input type="text" id="descricao" />
+                            <input type="text" id="descricao" className='editavel'/>
                         </div>
 
-                        <div class="form-group">
+                        <div className="form-group">
                             <label>Função</label>
-                            <input type="text" id="role" value="ROLE_USER" readonly />
+                            <input type="text" id="role" value="ROLE_USER" readOnly />
                         </div>
-                        <input type="text" name="id" id="indice" hidden />
+                        <input type="text" name="id" id="indice" className='editavel' hidden />
                     </div>
                 </form>
-                <div class="divSalvar">
-                    <button id="salvar" onclick="processar()">Salvar</button>
+                <div className="divSalvar">
+                    <button id="salvar" onClick={() => processar()}>Salvar</button>
                 </div>
                 <div>
                     <a href="./lojas.html">Fechar</a>
                 </div>
             </div>
 
-            <table class="table">
-                <thead class="thead-dark">
+            <table className="table">
+                <thead className="thead-dark">
                     <tr>
                         <th>Id</th>
                         <th>Nome</th>
@@ -59,7 +127,11 @@ function ListarLojas(props) {
                     </tr>
                 </thead>
 
-                <tbody id="tabela-lojas"></tbody>
+                <tbody id="tabela-lojas">
+                    {carregado && lojas.map(loja => (
+                        <Loja key={loja.id} loja={loja} />
+                    ))}
+                </tbody>
             </table>
         </div>
     );
