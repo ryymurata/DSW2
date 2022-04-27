@@ -1,10 +1,8 @@
 import Cliente from '@components/Cliente'
 import { useEffect, useState } from 'react';
-import axios from 'axios';
 import './styles.css';
 
 function ListarClientes() {
-
     const API = 'http://localhost:8080/clientes';
     const [clientes, setClientes] = useState('');
     const [carregado, setCarregado] = useState(false);
@@ -12,19 +10,16 @@ function ListarClientes() {
     /* hook de efeito colateral, executará sempre que houver mudança nos dados */
     useEffect(() => {
         setCarregado(false);
-        /* utilizando biblioteca externa axios para requisições */
-        axios
-            .get(API)
-            .then(response => {
-                /* converte a resposta recebida com .data */
-                const data = response.data;
-                /* se a resposta estiver ok, realiza set */
-                if (data !== 'undefined') {
-                    console.log(data) // eh pra mostrar json de todos os clientes
-                    setClientes(data);
-                    setCarregado(true);
-                }
-            });
+        let xhr = new XMLHttpRequest();
+        xhr.open('GET', API, true);
+        xhr.onload = function () {
+            if (this.readyState === 4 && this.status === 200) {
+                var veiculo = JSON.parse(this.responseText);
+                setClientes(veiculo);
+                setCarregado(true);
+            }
+        }
+        xhr.send();
     }, []);/* esse colchete fica vazio pq effect não depende de nenhum valor para fazer requisição */
 
     function gerar_criacao() {

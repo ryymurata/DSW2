@@ -26,9 +26,9 @@
 
 .propostas tbody tr td {
     flex-direction: column;
-    background-color: rgb(250, 250, 250);
+    /* background-color: rgb(250, 250, 250);
     box-shadow: 4px 6px 10px rgba(0, 0, 0, 0.205);
-    border: 1px solid rgb(214, 214, 214);
+    border: 1px solid rgb(214, 214, 214); */
 }
 
 .propostas tbody tr td:first-child {

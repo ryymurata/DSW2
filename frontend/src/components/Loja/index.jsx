@@ -1,5 +1,3 @@
-import './styles.css';
-
 function Lojas(props) {
 
     const API = 'http://localhost:8080/lojas';

@@ -7,13 +7,9 @@ function Cards(props) {
     const img = '/img/' + veiculo.id + '/1.jpg';
     //console.log(imageSrc)
 
-    function comprar(id) {
-        console.log('oba');
-    }
-
     return (
         <section className="box">
-            <div className="card" onClick={() => comprar(veiculo.id)}>
+            <div className="card">
                 <div className="container">
                     <img src={img} alt="Carro" />
                 </div>

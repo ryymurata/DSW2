@@ -1,5 +1,3 @@
-import './styles.css';
-
 function Cliente(props) {
 
     const API = 'http://localhost:8080/clientes';

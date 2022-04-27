@@ -1,9 +1,8 @@
 import Loja from '@components/Loja'
 import { useEffect, useState } from 'react';
-import axios from 'axios';
 import './styles.css';
 
-function ListarLojas(props) {
+function ListarLojas() {
     const API = 'http://localhost:8080/lojas';
     const [lojas, setLojas] = useState('');
     const [carregado, setCarregado] = useState(false);
@@ -11,19 +10,16 @@ function ListarLojas(props) {
     /* hook de efeito colateral, executará sempre que houver mudança nos dados */
     useEffect(() => {
         setCarregado(false);
-        /* utilizando biblioteca externa axios para requisições */
-        axios
-            .get(API)
-            .then(response => {
-                /* converte a resposta recebida com .data */
-                const data = response.data;
-                /* se a resposta estiver ok, realiza set */
-                if (data !== 'undefined') {
-                    console.log(data);
-                    setLojas(data);
-                    setLojas(true);
-                }
-            });
+        let xhr = new XMLHttpRequest();
+        xhr.open('GET', API, true);
+        xhr.onload = function () {
+            if (this.readyState === 4 && this.status === 200) {
+                var veiculo = JSON.parse(this.responseText);
+                setLojas(veiculo);
+                setCarregado(true);
+            }
+        }
+        xhr.send();
     }, []);/* esse colchete fica vazio pq effect não depende de nenhum valor para fazer requisição */
 
     function gerar_criacao() {
@@ -76,7 +72,7 @@ function ListarLojas(props) {
             <button className="adiciona" onClick={() => gerar_criacao()}>Adicionar nova Loja</button>
 
             <div className="container" id="cadastro" style={{ display: 'none', }}>
-                <h3 id="editando"></h3>
+                <h3 id="editando"> </h3>
                 <form method="POST">
                     <div className="form-row">
                         <div className="form-group">
