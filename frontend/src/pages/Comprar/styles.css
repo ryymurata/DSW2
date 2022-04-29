@@ -49,7 +49,7 @@
     padding: 120px;
 }
 
-input {
+input, button {
     margin-top: 20px;
     padding: 14px;
     border-radius: 16px;
@@ -66,7 +66,7 @@ input {
 }
 
 /* Botoes com valores de proposta */
-#form_proposta div input {
+#form_proposta div input, #fazerProposta {
     width: 150px;
     background-color: #e6e6e6;
     font-size: .9em;
@@ -74,7 +74,7 @@ input {
 }
 
 /* Botao fazer proposta */
-#form_proposta > input {
+#fazerProposta {
     font-weight: bold;
     font-size: 1.1em;
     background-color: transparent;
@@ -87,7 +87,7 @@ input {
     width: -webkit-fill-available;
 }
 
-#form_proposta > input:hover { /*pseudo-classe*/
+#fazerProposta:hover { /*pseudo-classe*/
     box-shadow: 0 0 40px 40px #e74c3c inset;
     color: #e6e6e6;
 }

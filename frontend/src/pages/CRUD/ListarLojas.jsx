@@ -107,7 +107,7 @@ function ListarLojas() {
                     <button id="salvar" onClick={() => processar()}>Salvar</button>
                 </div>
                 <div>
-                    <a href="./lojas.html">Fechar</a>
+                    <a href="./lojas">Fechar</a>
                 </div>
             </div>
 

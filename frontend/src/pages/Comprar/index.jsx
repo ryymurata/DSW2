@@ -7,6 +7,7 @@ function Comprar() {
 
     const { id } = useParams();
     const API = "http://localhost:8080/veiculos";
+    const API_PROPOSTA = "http://localhost:8080/propostas";
 
     const [veiculo, setVeiculo] = useState('undefined');
     const [carregado, setCarregado] = useState(false);
@@ -23,6 +24,18 @@ function Comprar() {
         }
         xhr.send();
     }, [id]);
+
+    function efetuarCompra() {
+        let nova_proposta = {};
+        /* pegando valores de divs*/
+        
+        const json = JSON.stringify(nova_proposta);
+
+        let xhr = new XMLHttpRequest();
+        xhr.open('POST', API_PROPOSTA + '/' + veiculo.loja.id + '/' + veiculo.id, true);
+
+        /*fazendo o resto do xhr*/
+    }
 
     return (
         <div className="carro">
@@ -41,14 +54,13 @@ function Comprar() {
                             </ul>
                             <form id="form_proposta" method="post">
                                 <div>
-                                    <input type="number" name="valor" placeholder="Valor" />
+                                    <input type="number" name="valor" id="valor" placeholder="Valor" />
                                 </div>
                                 <div>
-                                    <input type="number" name="parcelamento" placeholder="Parcelas" />
+                                    <input type="number" name="parcelamento" id="parcelamento" placeholder="Parcelas" />
                                 </div>
-                                {/* <input type="text" name="id" id="indice" value="${veiculo.id}" hidden /> */}
-                                <input type="submit" name="Proposta" />
                             </form>
+                            <button name="Proposta" id="fazerProposta" onClick={() => efetuarCompra()}>Comprar</button>
                         </div>
                     </div>
                     <div className="descricao">
