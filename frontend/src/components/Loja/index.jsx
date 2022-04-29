@@ -17,7 +17,7 @@ function Lojas(props) {
 
                 document.getElementById("CNPJ").value = loja.cnpj;
                 document.getElementById("indice").value = loja.id;
-                document.getElementById("descricao").value = loja.id;
+                document.getElementById("descricao").value = loja.descricao;
 
                 document.getElementById("cadastro").style = 'display:block;';
                 document.getElementById("editando").innerHTML = 'Editando ' + loja.nome;
