@@ -19,6 +19,28 @@
 	position: relative;
 }
 
+#menu {
+    display: flex;
+    justify-content: space-around;
+}
+
+.botao-loja {
+    width: 80px;
+    border: 1px solid black;
+    background-color: transparent;
+    font-weight: bold;
+}
+
+.botao-loja:hover {
+    background-color: rgb(43, 43, 43);
+    color: white;
+    transform: scale(1.1);
+    transition: 0.5s;
+    cursor: pointer;
+
+}
+
+
 #deletar {
     width: 100%;
     border-radius: 0 0 10px 10px;

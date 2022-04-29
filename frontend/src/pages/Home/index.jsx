@@ -27,9 +27,31 @@ function Inicio() {
         xhr.send();
     }, []);/* esse colchete fica vazio pq effect não depende de nenhum valor para fazer requisição */
 
+    function gerar_catalogo_por_loja(id) {
+
+        setCarregado(false)
+        let xhr = new XMLHttpRequest();
+        xhr.open('GET', API + '/lojas/' + id, true);
+        xhr.onload = function() {
+            if (this.readyState === 4 && this.status === 200) {
+                var veiculo = JSON.parse(this.responseText);
+                setListaCarros(veiculo);
+                setCarregado(true);
+            }
+        }
+        xhr.send();
+    }
+
     return (
         <>
             <section id="carros">
+
+                <div id="menu">
+                    <button class="botao-loja" onClick={() => gerar_catalogo_por_loja(5)}>Loja 1</button>
+                    <button class="botao-loja" onClick={() => gerar_catalogo_por_loja(6)}>Loja 2</button>
+                    <button class="botao-loja" onClick={() => gerar_catalogo_por_loja(7)}>Loja 3</button>
+                </div>
+
                 <div id="divFiltro">
                     <input type="text" name="Filtro" placeholder="filtrar carros..." id="filtro" onFocus={comecar} onBlur={parar} />
                     <span id="legendaN">veículos</span>
