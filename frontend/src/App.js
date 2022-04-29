@@ -12,7 +12,7 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Topbar />
+        <Topbar msg="Olá, admin!"/>
         <Routes>
           <Route element={ <Inicio /> } path="/" exact />
           <Route element={ <Crud /> } path="/CRUD" />

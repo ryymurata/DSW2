@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import './styles.css';
 
 function Propostas(props) {
@@ -23,30 +23,28 @@ function Propostas(props) {
     }, [id]);
 
     return (
-        <section id="lista-propostas">
-            <table className="propostas">
-                <thead className="thead-dark">
-                    <tr>
-                        <th>Id</th>
-                        <th>Data</th>
-                        <th>Estado</th>
-                        <th>Parcelamento</th>
-                        <th>Valor</th>
+        <Fragment>
+            <thead className="thead-dark">
+                <tr>
+                    <th>Id</th>
+                    <th>Data</th>
+                    <th>Estado</th>
+                    <th>Parcelamento</th>
+                    <th>Valor</th>
+                </tr>
+            </thead>
+            <tbody id="tabela-propostas">
+                {carregado ? listaPropostas.map(proposta =>
+                    <tr key={proposta.id}>
+                        <td data-label="Id" >{proposta.id}</td>
+                        <td data-label="Data" >{proposta.data}</td>
+                        <td data-label="Estado">{proposta.estado}</td>
+                        <td data-label="Parcelamento">{proposta.parcelamento}</td>
+                        <td data-label="Valor">{proposta.valor}</td>
                     </tr>
-                </thead>
-                <tbody id="tabela-propostas">
-                    {carregado ? listaPropostas.map(proposta =>
-                        <tr key={proposta.id}>
-                            <td data-label="Id" >{proposta.id}</td>
-                            <td data-label="Data" >{proposta.data}</td>
-                            <td data-label="Estado">{proposta.estado}</td>
-                            <td data-label="Parcelamento">{proposta.parcelamento}</td>
-                            <td data-label="Valor">{proposta.valor}</td>
-                        </tr>
-                    ) : <tr><td>Não há propostas</td></tr>}
-                </tbody>
-            </table>
-        </section>
+                ) : <tr><td>Não há propostas</td></tr>}
+            </tbody>
+        </Fragment>
     );
 }
 

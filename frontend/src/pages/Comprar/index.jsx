@@ -28,8 +28,8 @@ function Comprar() {
     function efetuarCompra() {
         let nova_proposta = {};
         
-        nova_proposta.data = "29/04/22";
-        nova_proposta.estado = "ABERTO"
+        nova_proposta.data = new Date().toLocaleDateString();
+        nova_proposta.estado = "ABERTO";
         nova_proposta.parcelamento = document.getElementById("parcelamento").value;
         nova_proposta.valor = document.getElementById("valor").value;
         
@@ -83,9 +83,11 @@ function Comprar() {
                         <strong>Sobre</strong>
                         <p>{veiculo.descricao}</p>
                     </div>
-
-                    <Propostas id={veiculo.id} />
-                    
+                    <section id="lista-propostas">
+                        <table className="propostas">
+                            <Propostas id={veiculo.id} />
+                        </table>
+                    </section>
                     <a href="/">Voltar</a>
                 </div>
             }

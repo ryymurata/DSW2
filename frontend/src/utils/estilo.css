@@ -1,0 +1,14 @@
+.vermelho {
+    width: 80px;
+    border: 1px solid black;
+    background-color: transparent;
+    font-weight: bold;
+}
+
+.vermelho:hover {
+    background-color: rgb(189, 31, 31);
+    color: white;
+    transform: scale(1.1);
+    transition: 0.5s;
+    cursor: pointer;
+}
