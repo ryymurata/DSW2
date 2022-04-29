@@ -14,8 +14,8 @@ function ListarLojas() {
         xhr.open('GET', API, true);
         xhr.onload = function () {
             if (this.readyState === 4 && this.status === 200) {
-                var veiculo = JSON.parse(this.responseText);
-                setLojas(veiculo);
+                var lojas = JSON.parse(this.responseText);
+                setLojas(lojas);
                 setCarregado(true);
             }
         }
