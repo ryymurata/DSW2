@@ -27,14 +27,29 @@ function Comprar() {
 
     function efetuarCompra() {
         let nova_proposta = {};
-        /* pegando valores de divs*/
+        
+        nova_proposta.data = "29/04/22";
+        nova_proposta.estado = "ABERTO"
+        nova_proposta.parcelamento = document.getElementById("parcelamento").value;
+        nova_proposta.valor = document.getElementById("valor").value;
         
         const json = JSON.stringify(nova_proposta);
 
         let xhr = new XMLHttpRequest();
         xhr.open('POST', API_PROPOSTA + '/' + veiculo.loja.id + '/' + veiculo.id, true);
-
-        /*fazendo o resto do xhr*/
+        
+        xhr.setRequestHeader("Content-type", "application/json");
+        xhr.onload = function () {
+            if (this.readyState === 4 && this.status === 200) {
+                alert('Deu certo!');
+                document.location.reload(true);
+            }
+            else {
+                alert('Ocorreu algum problema');
+            }
+        }
+        
+        xhr.send(json);
     }
 
     return (
@@ -59,6 +74,7 @@ function Comprar() {
                                 <div>
                                     <input type="number" name="parcelamento" id="parcelamento" placeholder="Parcelas" />
                                 </div>
+                               
                             </form>
                             <button name="Proposta" id="fazerProposta" onClick={() => efetuarCompra()}>Comprar</button>
                         </div>
