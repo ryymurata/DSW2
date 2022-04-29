@@ -46,8 +46,8 @@ function Lojas(props) {
             <td data-label="Id" >{loja.id}</td>
             <td data-label="Nome" >{loja.nome}</td>
             <td data-label="Email">{loja.username}</td>
-            <td data-label="CNPJ">{loja.cpf}</td>
-            <td data-label="Descricao">{loja.cpf}</td>
+            <td data-label="CNPJ">{loja.cnpj}</td>
+            <td data-label="Descricao">{loja.descricao}</td>
 
             <td data-label="Ações">
                 <button onClick={() => gerar_edicao(loja.id)}><span>&#x1F58C;</span></button>
